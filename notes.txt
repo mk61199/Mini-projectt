@@ -1,0 +1,353 @@
+> -> redirect o/p from LHS to RHS, create a file or to overwrite the file
+
+
+ echo "HI" > 2.txt
+
+
+>> redirect o/p from LHS to RHS , append the file and also can create the file 
+
+
+
+-   rw-r--r-- .    1       root     root    13 Sep 15 04:26     a.txt
+
+
+1. - ---> Regular Text File -> File Type
+2. rw-r--r--  --> Defines the Permission 
+3. .  --> Appending nature or attributes to the files
+4. 1 -> No of Links
+5. root  --> Place of who is the creator of the file / owner of the file 
+6. root --> Group of the Owner
+7. TimeStamp -> 
+8. a.txt -> Name of the File / Directory
+
+
+Hidden Files/Folders 
+
+.shahid.jpg
+
+.nomedia
+
+
+-------------------------------------------------------------
+Absolute vs Relative 
+
+C:\Users\Prasiddh saxena\Desktop + cd books = C:\Users\Prasiddh saxena\Desktop\books
+
+-------------------------------------------------------------
+Linux File System
+
+/  -> It is Top of the hierarchy in Linux (Root)
+1. /bin -> All the binary executables of linux is present in this directory
+2. /sbin -> All the BVinary which are of admin privileges 
+3. /boot -> All the files related to starting of your system (GRUB)
+4. /dev -> Has the List of all the peripheral H/W
+5. /etc -> All the configuration Files in your system is located in etc 
+6. /home -> All The users Home Directory will be here ( by default )  -> Normal Users
+7. /root -> The Home Directory of administrator of Linux 
+8. /lib -> All the Library Files of Linux of 32 bit architecture are located here
+9. /lib64 ->All the Library Files of Linux of 64 bit architecture are located here
+10. /media -> All the Media Files can be found here 
+11. /mnt -> General location where every user (by default) mounts their Storage Device is mnt .
+12. /opt -> CDs OCR MICR devices mounted in this location  (by default)
+13. /proc -> Volatile Memory Location data is cleared when system is shut down 
+14. /run -> Runnable Media are shown here 
+15. /srv -> Services data / service cache file will be stored here
+16. /sys -> System Data / System Cache files will be stored here
+17. /tmp -> Tenporary File Folder similar to temp in windows 
+18. /usr -> All the 3rd party softwares , documentation and other things are stored under usr 
+19. /var -> Variable Data is kept here .
+
+
+---------------------------------------------------------------------
+User Administration  (Administrator)
+
+1. There are 5 types of Users 
+	a. Normal User -> Anything which is done normally by a user is a normal user
+	b. Guest User  -> Temporary User
+	c. Admin User -> It is the Most Powerful User and responsible for all types of system administration 
+	d. system user -> Daemon Users 
+	e. Power User -> They have same power as administrator however it cannot delete the admin but they can perform 
+						deletion on normal user.
+
+
+Important Files 
+
+/etc/passwd  -> Contains User Information 
+/etc/shadow  -> File will contain users's Password  
+/etc/group   -> This will have information about groups 
+/etc/gshadow -> This will contain group passwords (Not Necessary)
+
+Important Directory
+/etc/skel  -> ls -la  .bash_history , .bashrc , .bash_logout , information.txt
+
+.bash_history -> This file will contain all the commands run by the user in the terminal 
+.bashrc -> This file is used to create shortcuts of command 
+.bash_profile -> Is the File called when we log in to the system 
+.bash_logout -> What command needs to be executed when user logs out 
+
+Whenever you generate a user /etc/skel directory data will get copy pasted inside the new user home directory
+
+
+
+mitali:  x    :0    :1001   :       :/home/mitali     :/bin/bash
+
+
+
+mitali -> Username 
+x -> password link
+UID -> User Identification Number 
+
+
+0  = Root (Administrator)
+1-999 = System Users (Daemons)
+1000-60000 = Normal Users 
+
+Mitali is a normal User => Power User => Change UID Value to 0
+
+
+
+GID -> Group Identification Number 
+The Group ID ==> 0 ==> Power User 
+
+
+
+---------------------------------------------------
+
+
+
+aruljothi       :x         :0        :0      :         :/home/aruljothi     :/bin/bash
+
+
+1. aruljothi ?? -> username 
+2. x  ---> it has a link to the password file (/etc/shadow)
+3. 1003  --> UID
+
+UID (USer Identification)
+
+0 = root 
+1-999 = System Users/ Daemons
+1000-60000 = Normal Users
+
+
+
+
+
+4. 1003 --> GID (Group Id)
+
+0= Root
+1-999 = System Users/Daemons
+1000-60000 = Normal groups
+
+
+useradd <prasiddh>
+
+1. Entry in passwd file 
+2. Entry in shadow file 
+3. Entry in group file 
+
+
+5. gecos --> General Inforation about a user
+
+6.  Home Directory 
+
+7. Shell that you work on 
+
+
+
+abc3r43r4543dcdce8778f  => hjgxjjhsavxvjasvxyasuxvuwqfvu
+
+
+
+
+32bit --> 
+In programming there are data types 
+integer type of data --> int data type 
+
+32 bit complier --> int --> 2 bytes 
+64 bit complier --> int ---> 4 bytes 
+----------------------------------------------------------
+Editing Of files 
+
+
+1. vi Editor 
+
+insert mode --> Inserting of Data opening in writing mode (i)
+Escape Mode --> Coming out of a command is escape mode (Esc)
+Command Mode --> Actions or commands for vi editor is done here .. How to activate the command mode --> :
+
+** NOTE :- For command mode you must be in escape mode 
+
+
+A few commands :-
+
+1. i --> insert mode 
+2. o --> open a new line just below the line /cursor
+3. O --> Open a new line just below the line/ cursor
+4. dd --> Deleting a line 
+5. yy --> Copying the line 
+6. yw --> Copy a word
+7. p --> Pasting 
+8. gg --> Go to Top of the Page 
+9. G --> Go to bottom of the page 
+9. :q --> Quitting
+10. :w --> Save
+11. :wq! --> Save and Exit === :x!
+12. $ Move to end of file 
+13. e = Move to end of word 
+14: :se nu --> Show number against a line
+15. :se nonu --> Dont Show numbers against a line.
+
+
+--------------------------------------------------------------------------------
+Permissions
+
+Is a authorization level granted to each user/group
+
+Authentication vs Authorization ?
+
+What Do we know ? What do we have ?
+
+3 Types of Permissions 
+
+1. read(r) :-  Reading of the content of the file / directory
+2. write(w) :- Writing means to create or to edit the file  / directory
+3. execute(x) :- Running of a file / Directory
+
+
+-       rw-r--r--    .
+
+
+
+-rw-r--r--. 1 root root  255 Sep 19 06:37 a.txt
+
+
+
+
+rw-    r--       r--
+
+rwx
+
+
+1. Owner 
+2. Group (Family Group)
+3. Other Users 
+
+2 Methods to calculate permissions
+
+1. Numerical
+
+
+r=4
+w=2
+x=1
+
+
+4+2+1=7 ==> Full Permission
+
+rw-  rwx   r-x = 675
+
+4+2+0=6
+
+4+2+1=7
+
+4+0+1=5
+
+-wx  r-x  rwx = 357 ==> 0+2+1=3   4+0+1=5   4+2+1=7
+
+rwxrwxrwx ==> 777
+
+r-- --- --- ==> 400
+
+rw- --- --- ==> 600 
+
+------r-- ==> 004
+
+chmod <permissionvalue>  File/Directory  --> Syntax
+
+2. Alphabetical
+
+--------------------------------------------------------------------------
+
+Permissions 
+
+Authentication vs Authorization ?
+
+Authentication --> But verifying who you are? by tokens 
+Authorization --> What access level do the user has of the system / infrastructure .
+
+What do you know ? What Do you have ?
+
+3 types of permissions 
+
+1. read(r) --> To view the content of the file/directory
+2. write(w) --> To Create,modify(edit) a file / directory
+3. execute(x)  --> To run a program/file/Directory
+
+
+
+-  rw-r--r--    .
+
+
+
+
+-rw-r--r--. 1 root root  120 Sep 19 10:51 a.txt
+
+
+rw-r--r--
+
+2 methods ->
+1. Numerical Method (Octal Method)
+
+r =4
+w=2
+x=1
+
+rwx
+=> 4 + 2 + 1 = 7
+
+
+
+
+rw-                 r--                        r--
+
+Owner              Group Permission          Other Users Permmision
+
+
+rw- = 4+2+0 = 6
+r-- = 4+0+0 = 4
+r-- = 4+0+0=  4
+
+rw-r--r-- = 644
+
+
+r-x    -wx    rw-    =>
+
+r-x=4+0+1=5
+-wx = 0+2+1=3
+rw- = 4+2+0 = 6
+
+r-x-wxrw- = 536
+
+
+r-x------ = 500 G=no Permission O=Read & Excute Other=No Permissions
+rwxrwxrwx = 777 G=Full Permission,O=Full Permission,Other=Full Permission
+rw---x--x = 611 G= Execute , O= Rad Write , Other = Execute
+r-xr-x--x = 551 => G= Readand Execute , O = Read & execute , Other= Execute
+r-------- = 400  => G= No permissions , O = read Permission, Other = No Permission
+-w------- = 200 => G= No Permissions , O= Write Permission, Other = No Permission
+
+=> What is the permission of the group?
+=> What is the permission of the owner?
+=> What is the permission of the other user?
+
+
+r-x rw-  r-x
+r-x = 4 + 0 + 1 = 
+
+r-x  ---  --- 
+
+
+chmod <Numeric value of permission> <file/directory>
+
+2. Alphabetical Method 
+

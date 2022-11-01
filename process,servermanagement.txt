@@ -1,0 +1,127 @@
+Cpu Priority
+
+-20 to +19  
+
+-20 ==> HIghest
++19 ==> Lowest
+
+**NOTE :- A process can have -ve priority set only by the admin aka root user only
+
+
+------------
+Crontab 
+
+*      *         *      *     *    
+
+
+
+1. Defines at what minutes  (0-59)
+2. Defines at what hour (0-23)
+3. Defines on what date (1-31) 
+
+59   23    3   *   *   <Command>  => 3rd of every month at 11:59pm task should be executed 
+
+4. Defines the month of the year (1-12)
+
+59  23   3   6  *  <Command>  ==> on 3rd June 11:59pm task should be executed 
+
+5. Defines on which weekday (1-7) 1-> Monday , 7-> Sunday
+
+
+23  9   8   8  4  <Command> => on 8th August at 9:23am the task should be executed only if 8th August is Thursday
+
+
+Exercise:-
+
+1. Schedule a task for 6:19 am if it is a wednesday and the month should be june ==>  19 6 * 6  3 
+2. Schedule a task which runs after every 5 minutes ==> */5 *  *   *  * 
+3. Schedule a task for 9:23 pm if it is a saturday ==> 23 21 *  * 6  
+4. Schedule a task such that it runs once every hour ==> *  */1 * * *
+
+
+---------------------------------------
+
+
+
+9:23pm for 6th july
+
+
+23  21 6 7 *  <Command>
+
+1. Schedule a task for 11:32 am if it is a wednesday and the month should be june ==> 32  11  *   6   3  <Command>
+2. Schedule a task which runs after every 5 minutes ==> */5 *  * * *
+3. Schedule a task for 9:08 pm if it is a saturday ==> 8  21  *  *  6
+4. Schedule a task such that it runs once every hour ==> * */1 * * *
+5. Schedule a task for 1:03pm such that it is a wednesday of 6th june => 3 13 6 6 3   
+6. Schedule a task for 6th of may and ensure it is a sunday ==> * * 6 5 7 
+7. Schedule a task for every month such that when it is 6th it should be a friday  => * * 6 * 5
+8. Schedule a task for  every saturday at 3:30pm ==> 30 15 * * 6
+
+
+Task :-
+Schedule 5 tasks out of which 3 tasks needs to be done over and over again and 2 tasks needs to be done only once
+Make the entries accordingly
+
+
+
+-------------------------------
+systemctl has 5 subcommands 
+
+1. start
+2. stop
+3. restart
+4. enable
+5. disable
+
+--------------------
+
+HTTP (Hyper Text Transfer protocol)
+
+Port Number:- 80,443(HTTPS)
+Service Name/Daemon name :- httpd
+Main Config File :- /etc/httpd/conf/httpd.conf
+Log File: /var/log/httpd (Directory:- access.log,error.log)
+Database Directory:- /var/www/html
+Package Name:- httpd  / httpd*
+
+
+Steps to deploy the web server (Apache)
+
+1. yum install httpd* -y    #To Install web server package
+2. cd /var/www/html         # To create a index.html file
+3. vi index.html            # Creation of the file
+4. systemctl start httpd    # Started the Web Server 
+5. systemctl enable httpd   # Whenever the system starts the service httpd should also start
+6. systemctl stop httpd     # to stop the server
+7. systemctl disable httpd  # to remove  the behaviour of linux to start the service on bootup 
+8. systemctl restart httpd  # When you bring changes to your main config file
+
+
+
+Condition Statements 
+
+Syntax
+
+if [ expression ]
+then
+	Statements
+fi
+
+
+if [ expression ]
+then
+	Statements
+else
+	Statements
+fi
+
+
+if [ expression ]
+then
+	Statements
+elif [ expression ]
+then
+	Statements
+else
+	Statements
+fi

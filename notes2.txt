@@ -1,0 +1,107 @@
+Permissions
+
+Is basically when an access is given to a particular user to perform certain actions on the system.
+
+read(r) => To view the content file/directory
+write(w) => Create and Modify a file / Directory
+execute(x) => Run a program/directory 
+
+
+-rw-r--r--. 1 root root 0 Sep 20 08:44 a.txt
+
+
+
+rw-                     r--                r--
+
+Owner Permission   Group Permission     Other User Permission
+
+2 methods 
+
+1. Numerical Method (Octal Method)
+
+
+r=4
+w=2
+x=1
+
+rwx = 4 + 2 + 1 = 7
+
+r-x = 4 + 0 + 1 = 5
+
+-wx = 0+2+1 = 3
+
+rwx                    r-x                       r-x
+
+rwx = 4+2+1 = 7
+r-x = 4 + 0 + 1 = 5
+r-x = 4+0+1=5
+
+rwxr-xr-x = 755
+
+
+
+755 = rwxr-xr-x
+
+r-x     rw-    --x => 561  ==> G= read and write , O= read and execute , Other = Execute
+-wx----- =>300 ==> G = No Permissions, O= Write and Execute , Other = No Permissions 
+--------- => 000 ==> G = No Permissions , O = No Permissions , Other= No Permissions
+---r---w- =>042  ==> G = Read , O = No Permission , Other = Write
+--------x ==> 001 ==> G= No permissions , O= No Permissions , Other = execute permissions 
+
+
+600  ==> rw-------  ==> G = No Permissions , O= Read & Write , Other= No Permission
+750  =>  rwxr-x--- ==> G = Read & Execute , O = Full Permission , Others= No Permissions
+250  ==> -w-r-x--- ==> G = Read & Execute , O = Write , Others= No Permissions 
+
+-wx  ---  ---
+===>
+1. What is the permission for the group
+2. What is the permission of the owner
+3. What is the permission of the other users
+
+chmod <Octal Value> File/Directory
+
+
+
+rw-rw-rw- = 666
+
+-           022
+-----------------------------
+            644 ==> rw-r--r--
+
+
+2. Alphabetical Method (ugo Method)
+
+u  = owner 
+g  = group
+o  = other 
+
+chmod u=rwx a.txt
+chmod g=r-x a.txt
+
+------------------------------------------------------------
+Directory Permission 
+
+read (r) ==> To view/list contents of a directory
+write (w) ==> Create / delete a file from the directory
+execute (w) ==> To go Inside That directory  (cd )
+
+rwxr-xr-x   = Default Permission by linux 
+
+Full Permission of a directory
+777 = rwxrwxrwx 
+
+
+     777
+-    022
+--------------
+     755 = rwxr-xr-x
+
+
+---------------------------------
+I/O Redirectors 
+
+>  --> It redirects output coming from LHS to RHS , crating a new file or overwriting existing file
+>> --> It redirects output coming from LHS to RHS , append the file and also used for create a file 
+| (pipe) --> It will use output of the previous command as input to new command 
+2>  --> It Will redirect your error from LHS output to RHS file a location

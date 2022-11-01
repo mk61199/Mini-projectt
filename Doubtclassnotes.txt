@@ -1,0 +1,221 @@
+Doubt Class
+
+1. Linux --> Complete
+2. EC2 --> Windows & Linux
+3. S3 ---> Completed with Lab
+4. AMI Permissions
+5. AWS Lab Access  --> Complete
+6. LeaderShip Principle
+
+---------------------------------------------
+t2.micro --> Free Tier 
+
+t,x,c,m,m2  --> Family Type
+
+2 --> generation
+
+.micro --> what is the size of the instance
+
+t2a.micro  --> AMD Processor
+
+Instance Purchasing Options
+1. On Demand :- Right Now Right Away  (Most Costly Way to get an Instance)
+2. Reserved :- When resource has been allocated to us for specified duration continously
+					1. AURI  -> All Upfront Reservered Instance (Maximum Discount)
+					2. PURI ->  Partial Upfront Reservered Instance ( a little lower than AURI Discount)
+					3. NURI -> No Upfront Reserved Instance (Little or no discount)
+3. capacity Reservation
+		When not certain if needed or not in future --> Discounts === PURI
+4. Spot Instance
+	Bidding --> Whoever Bids Highest will get the ionstance for 4 hours only
+
+-----------------------------------------------------
+
+1. Create a file or redirect output of LHS to RHS, or we want to overwrite existing file ---> >
+
+
+ls  ===> ls /root
+
+ls /tmp  ==> ls /tmp
+
+
+.ashish.jpg
+
+
+drwx------.  2 root root  29 Sep 21 13:14 .ssh
+-rw-r--r--.  1 root root  22 Sep 21 13:34 b.txt
+
+
+
+Linux File System
+
+/  -> It is Top of the hierarchy in Linux (Root)
+1. /bin -> All the binary executables of linux is present in this directory
+2. /sbin -> All the BVinary which are of admin privileges 
+3. /boot -> All the files related to starting of your system (GRUB)
+4. /dev -> Has the List of all the peripheral H/W
+5. /etc -> All the configuration Files in your system is located in etc 
+6. /home -> All The users Home Directory will be here ( by default )  -> Normal Users
+7. /root -> The Home Directory of administrator of Linux 
+8. /lib -> All the Library Files of Linux of 32 bit architecture are located here
+9. /lib64 ->All the Library Files of Linux of 64 bit architecture are located here
+10. /media -> All the Media Files can be found here 
+11. /mnt -> General location where every user (by default) mounts their Storage Device is mnt .
+12. /opt -> CDs OCR MICR devices mounted in this location  (by default)
+13. /proc -> Volatile Memory Location data is cleared when system is shut down 
+14. /run -> Runnable Media are shown here 
+15. /srv -> Services data / service cache file will be stored here
+16. /sys -> System Data / System Cache files will be stored here
+17. /tmp -> Tenporary File Folder similar to temp in windows 
+18. /usr -> All the 3rd party softwares , documentation and other things are stored under usr 
+19. /var -> Variable Data is kept here .
+
+Absolute vs Relative
+
+C:\users\Prasiddh saxena\Desktop  + cd books ==> C:\users\Prasiddh saxena\Desktop\books
+
+
+------------------------------------------------
+User and Group Administration
+
+5 Types of users
+1. Admin User  --> has all the privileges on the system, he can do anything on the system
+2. Power User  --> has all the pivileges on the system , he can do anything on the system but cannot delete admin user
+3. system user --> So a process started by no-one still it is running on the system it is ran by system users/daemon users
+4. Normal user --> General Users play games,watch movie,netflix 
+5. Guest user --> Temporary access to someone then we create guest user.
+
+
+Important Files / Directories 
+
+/etc/passwd :- Contains all the information about a user--> UID,GID,username,gecos,homedirectorylocation,shell
+/etc/shadow :- Contains Users Password and the age of expiry of the password and any password policy
+/etc/group  :- Contains all the information about a group --> Groupname,GID,members of the group, Linktopasswordfile
+/etc/gshadow :- All the group passwords are inside this file 
+
+/etc/skel :- This is a directory :- .bashrc , .bash_profile , .bash_logout
+			.bashrc --> Used when we want to create a alias of our command 
+			.bash_profile --> When users logs in this file is executed by default 
+			.bash_logout --> When user will logout from the system this file will be executed 
+
+
+Content of /etc/passwd
+ec2-user     :x        :1000           :1000            :Cloud User            :/home/ec2-user               :/bin/bash
+
+Username    Link        UID              GID              gecos     				Home Directory						Shell                          
+				to																						Location						By Which User logs in
+				shadow
+				file
+				which 
+				contains
+				password
+				of the
+				user
+
+
+Username --> Unique name for identifying any user
+
+Link to shadow file --> Generating a Link b/w /etc/passwd  and /etc/shadow  & This is a password field
+
+UID  ---> User ID --> contains what type of user i am and also what actions can i perform 
+
+UID==0  --> User is root (admin user)
+UID == 1-999 --> User is system user
+UID == 1000-60000 --> User is Normal user
+
+GID  ---> Group ID --> contains what group the user belongs and the primary group 
+
+GID==0  --> Group is root (admin user)
+GID == 1-999 --> Group is system user
+GID == 1000-60000 --> Group is Normal user
+
+gecos --> Personal Information about a user 
+
+Home Directory location --> Where the user's home directory is located 
+
+Shell By Which users logs in --> Which Shell to use when user logs in 
+
+
+** NOTE :- Whenever you create a user you make entries in 
+
+/etc/passwd
+/etc/shadow
+/etc/group
+/etc/gshadow
+
+/etc/skel --> User's Home Directory
+
+
+-----------------------------------------------------------------
+Permissions 
+
+Allowing Someone to do Something 
+
+read(r) ==> To View the content of files/directory
+write(w) ==> To create,modify(edit) a file/directory
+execute(x) ==> Run a program/directory (cd)
+
+File permissions 
+
+**NOTE:- By default no file is given executable permissions by default we always have to give it manually.
+
+There are 2 methods to set permissions or calculate permissions
+
+
+-   rw-rw-r--   . 1 oslo   prasiddh  0 Sep 22 14:40 test.txt
+
+ rw-              rw-                  r--
+
+Owner				Group						Other Users
+
+
+1. Numerical method (Octal Method)
+
+
+r=4
+w=2
+x=1
+
+
+rwx = 4+2+1==7
+
+rwx    r-x       r-x
+
+rwx = 4+2+1 = 7
+r-x = 4 + 0 + 1 = 5
+r-x = 4+0+1 = 5
+
+rwxr-xr-x == 755 ==> Octal value of the permission you wanted.
+
+-wxr-xrwx == 357
+
+rw-rw-rw- == 666
+
+r-------- == 400
+--------x == 001
+------rwx == 007
+
+chmod <OctalValue> <File/Directory>
+
+Full Permission of File ==> rw-rw-rw- == 666 - 022 = 644 ==> rw-r--r--
+
+2. Alphabetical Method/Symbolic Method / ugo method
+
+u= whatever permission you want to give to a owner
+g= whatever permission you want to give to a group
+o= whatever permission you want to give to a other user
+
+chmod u=rw- <file/Directory>
+
+
+
+
+
+Directory Permissions 
+
+Full Permission == rwxrwxrwx == 777 - 022 ==> 755 ==>rwxr-xr-x
+
+
+Copy File :- cp  -v <Source Path>  <Destination Path>
+Copy a Directory :- cp -rv <Source Path>  <Destination Path>
+To move a directory/file :- mv -v  <Source>  <Destination>

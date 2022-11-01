@@ -1,0 +1,80 @@
+Open System Interconnection(OSI) Model
+
+**NOTE:- It is a refernece model not a implemented model
+
+There are  7 Layers in OSI Model 
+
+1. Application Layer ---> 7th Layer of OSI
+2. Presentation Layer---> 6th Layer of OSI
+3. Session Layer	 ---> 5th Layer of OSI
+4. Transport Layer  ---> 4th Layer of OSI
+5. Network Layer    ---> 3rd Layer of OSI
+6. Data Link Layer  ---> 2nd Layer of OSI
+7. Physical Layer   ---> 1st layer of OSI
+
+
+Im sender of the data
+
+Sender to Reciever 
+ 
+1. Application Layer :- This Layer has the ability to request for interactive user. It prepares data to be 
+							sent over the network.
+							Eg:- HTTPS,HTTP,FTP
+
+							In what form is your data in this layer?
+							data is in the form of data only
+
+2. Presentation Layer :- This Layer present your data so that processing can be done. It is responsible for
+								encoding/decoding your data before it is sent on the network. It is also used for
+								compresssing and decompressing the data over the network.
+							EG:- HTTPS,FTPS,HTTP,FTP,SMTP
+					In what form is your data in this layer?
+							data is in the form of data only
+
+3. Session Layer :- A connection for the period to perform a particular task/process over the network this layer
+							is utilized.
+						Eg:- Downloading the File , To maintain connection from server 
+
+					In what form is your data in this layer?
+							data is in the form of data only
+
+4. Transport Layer:- End to end communication b/w applications is done by transport layer. It defines which protocol to use
+							and here the port number is also added to the data 
+							EG:- End to end encryption by whatsapp.
+							80 --> HTTP
+							22 --> SSH
+							3389 --> RDP
+					There are 2 protocols --> TCP , UDP , QUIC
+
+					n what form is your data in this layer?
+							data is in the form of segments only
+
+5. Network Layer:- To add the information to the data on which system it has to go/which system is the data coming from
+						because it adds/reads the IP address (Logical Address). ALL the routing switching happens in this layer
+
+							in what form is your data in this layer?
+							data is in the form of packets only
+
+6. Data Link Layer :-  There are 2 jobs of data link layer 
+							1. To add MAC (Media Access Control) address (Physical Address of the network interface cards)
+							2. TO check data Intergrity via checksum
+
+						MAC address --> 48bit address which is in the form of hexadecimal 
+
+						NUmber 0-9, 10 --> A , 11 --> B , 12 --> C 13 -->D 14 --> E 15 --> F
+
+					Decimal <-> Binary
+					Decimal <-> Hexadecimal
+
+					c2f7c643a9e4c23a4f0c45763243f598
+					b1e49f7b693e70928987a03ce8c22943
+					c2f7c643a9e4c23a4f0c45763243f598
+
+					in what form is your data in this layer?
+							data is in the form of frames only
+
+7. Physical Layer :- All the hardware,cables are used now to send your data on the networking cables to the recievers.
+
+					in what form is your data in this layer?
+							data is in the form of bits only
+			

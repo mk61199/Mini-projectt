@@ -1,0 +1,18 @@
+  170  mkdir hacker engineer moneyheist narcos GOT
+  171  ls
+  172  mkdir hacker/hacked
+  173  cat > hacker/databreach.txt
+  174  cat > engineer/1.txt
+  175  cat > engineer/2.txt
+  176  cat > engineer/test.py
+  177  mkdir engineer/python
+  178  cat engineer/python/code.py
+  179  cat >  engineer/python/code.py
+  180  mkdir moneyheist/professor  moneyheist/tokyo
+  181  mkdir narcos/escobar
+  182  cat > narcos/colombian.txt
+  183  mkdir GOT/Sarsi GOT/jamie   GOT/lanister  GOT/stark  GOT/arya  GOT/tenaryus
+  184  cat > GOT/jamie/walfofshame.txt
+  185  ls - R
+  186  ls -R
+  187  history

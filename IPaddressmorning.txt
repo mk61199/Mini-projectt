@@ -1,0 +1,619 @@
+What are decimal numbers --> 0--->infinite are decimal numbers
+
+What are binary numbers --> they are in the form of 0 and 1
+
+
+(32)BASE10 --> ()BASE2
+
+
+				(100000)BASE2=32 BASE 10
+
+(65)  ---> ()BASE2
+
+(127) --> BASE2 =  1111111 
+
+193 --> BASE2  =   11000001
+
+224 --> BASE 2 =  11100000
+
+Binary to Decimal 
+
+ 1111111 --> ()BASE10
+
+ 1   1    1    1   1   1   1
+ 
+
+11000001  == 193
+11100000  ==  224 
+0101010   ==  42   
+11111111  == 255 
+10001001 == 137
+10101010 == 170
+
+-----------------------------------------------------------
+Ip Addressing 
+
+An Ip address is the unique identifier of the system over the network
+
+
+Parent Organization who started IP addressing and maintainer --> IANA (Internet Assigned Number Authority)
+Parent Organization gives it to Country's ISP ---> VSNL (Videsh Sanchar Nigam Ltd.)
+Country's ISP will give it to Customers --> Jio, Reliance, Airtel, VI etc etc.
+Customers will assign IP to the clients --> We are the clients (end-users)
+
+There are 2 types of IP address
+
+1. IPv4 (Internet Protocol Version 4)
+2. IPv6 (Internet Protocol Version 6)
+
+IPv4
+
+4 octets in an IP address 
+
+each space will have 8 bits
+
+1= On Bit / Network Bit
+0 = Off Bit / Host Bit 
+
+00000000.00000000.00000000.00000000 = 2^32 = ~= 4 Billion
+
+Classes was born 
+
+1. Class A -> General Use 
+2. Class B -> General Use
+3. Class C -> General Use
+4. Class D -> Multicasting
+5. Class E -> NASA/ISRO/Experimental Agency/Defence
+
+Class A
+
+11111111.00000000.00000000.00000000
+
+N.H.H.H
+
+Calculate the Range of Class A:- 
+
+01111111=127
+
+0-126 = Class A
+
+**NOTE:- 127th Network is reserved for H/W testing
+
+Total Number of Networks:- 255 
+Total Number of Hosts:- 255 x 255 x 255 = 1,65,81,375
+
+10.0.0.0  -> Network ID
+10.0.0.1  -> Assign the First IP to the Host
+10.0.0.2
+10.0.0.3
+10.0.0.4
+.
+.
+..
+.
+.
+.
+.
+10.0.0.254
+10.0.0.255
+10.0.1.0
+10.0.1.1
+10.0.1.2
+10.0.1.3
+.
+.
+.
+.
+.
+.
+.
+10.0.1.254
+10.0.1.255
+10.0.2.0
+10.0.2.1
+.
+.
+.
+.
+..
+.
+.
+.
+.
+10.0.255.254
+10.0.255.255
+10.1.0.0
+10.1.0.1
+10.1.0.2
+.
+..
+.
+.
+.
+.
+.
+.
+10.1.255.254
+10.1.255.255
+10.2.0.0
+10.2.0.1
+.
+.
+.
+.
+..
+..
+.
+.
+10.255.255.254 -> Last Valid Ip that can be assigned to a client
+10.255.255.255 -> Broadcast IP
+
+
+20.0.0.0 -> Network ID
+20.0.0.1 -> First Valid IP
+20.0.0.2
+20.0.0.3
+.
+..
+.
+.
+.
+..
+.
+20.0.0.254
+20.0.0.255
+20.0.1.0
+20.0.1.1
+20.0.1.2
+.
+.
+.
+.
+..
+.
+.
+.
+.
+.
+20.0.255.254
+20.0.255.255
+20.1.0.0
+20.1.0.1
+20.1.0.2
+.
+.
+.
+.
+.
+.
+.
+20.255.255.254  -> Last Valid IP in the network that can be assigned to the host
+20.255.255.255  -> Broadcast IP
+
+
+x.0.0.0  -> Network Id
+x.255.255.255 -> Broadcast IP
+x.0.0.1 --> First Valid IP
+x.255.255.254 --> Last Valid IP
+
+x= {0-126}
+
+30.0.0.0 -> N/W ID
+30.0.0.1 -> First Valid IP
+30.255.255.254 -> Last Valid IP
+30.255.255.255 -> Broadcast ID
+
+
+
+40.0.0.0
+
+N/W ID -> 40.0.0.0
+First Valid IP :- 40.0.0.1
+Last Valid IP :- 40.255.255.254
+Broadcast IP:- 40.255.255.255
+
+50.0.0.0
+
+N/W ID:- 50.0.0.0
+First Valid :- 50.0.0.1
+Last Valid:- 50.255.255.254
+Broadcast :- 50.255.255.255
+
+
+60.0.0.0
+
+N/W ID :- 60.0.0.0
+First Valid :- 60.0.0.1
+Last Valid :- 60.255.255.254
+Broadcast:- 60.255.255.255
+
+50.34.88.99  ==> 50.0.0.0
+
+N/W ID :- 50.0.0.0
+First Valid:- 50.0.0.1
+Last Vaid IP :- 50.255.255.254
+Broadcast:- 50.255.255.255
+
+78.99.42.255
+
+N/W ID :- 78.0.0.0
+First Valid:- 78.0.0.1
+Last Valid:- 78.255.255.254
+Broadcast:- 78.255.255.255
+
+62.99.255.255
+
+N/W ID :- 62.0.0.0
+First Valid:- 62.0.0.1
+Last Valid:- 62.255.255.254
+Broadcast:- 62.255.255.255
+
+89.255.255.255
+
+N/W ID :- 89.0.0.0
+First Valid:- 89.0.0.1
+Last Valid:- 89.255.255.254
+Broadcast:- 89.255.255.255
+
+125.125.125.125
+
+N/W ID :- 125.0.0.0
+First Valid:- 125.0.0.1
+Last Valid:- 125.255.255.254
+Broadcast:- 125.255.255.255
+
+
+11111111.00000000.00000000.00000000
+
+255.0.0.0  --> Subnet Mask
+
+A subnet mask defines the range of IP addresses that can be used within a network or subnet.
+It also separates an IP address into two parts: network bits and host bits.
+
+
+----------------------------------------------------------
+
+Class B
+
+11111111.11111111.00000000.00000000
+
+N.N.H.H
+
+Range=128-191=63
+ 
+10111111=191
+
+Total Number of Networks = 63 x 255 = 16065
+Total Number of Hosts = 255 X 255 = 65025
+
+
+128.0.0.0 -->
+
+128.1.0.0
+128.253.0.0
+128.255.0.0
+
+128.0.0.0  --> N/W IP
+128.0.0.1  --> First Valid
+128.0.0.2  
+.
+.
+.
+.
+.
+..
+128.0.0.254
+128.0.0.255
+128.0.1.0
+128.0.1.1
+128.0.1.2
+.
+.
+...
+128.0.1.254
+128.0.1.255
+128.0.2.0
+128.0.2.1
+.
+..
+..
+
+..
+
+.
+.
+128.0.255.254  --> Last Valid IP
+128.0.255.255  --> Broadcast IP
+
+132.89.0.0  --> Network ID
+132.89.0.1  --> First Valid IP
+132.89.0.2 
+..
+..
+.
+.
+.
+.
+.
+132.89.0.255
+132.89.1.0
+132.89.1.1
+..
+.
+.
+.
+.
+.
+.
+.
+.
+.
+132.89.255.254  --> Last Valid IP
+132.89.255.255  --> Broadcast IP
+
+x.x.0.0 --> Network ID
+x.x.255.255 -> Broadcast IP
+x.x.0.1  --> First Valid IP
+x.x.255.254 --> Last Valid IP
+
+143.67.0.0
+
+N/W :- 143.67.0.0
+First IP:- 143.67.0.1
+Last IP:- 143.67.255.254
+Broadcast:- 143.67.255.255
+
+156.0.0.0
+
+N/W ID :- 156.0.0.0 
+First Valid:- 156.0.0.1
+Last Valid:- 156.0.255.254
+Broadcast:- 156.0.255.255
+
+167.89.0.0
+
+N/W ID :- 167.89.0.0
+First Valid:- 167.89.0.1
+Last Valid:- 167.89.255.254
+Broadcast:- 167.89.255.255
+
+
+188.66.89.0
+
+N/W ID :- 188.66.0.0
+First Valid:- 188.66.0.1
+Last Valid:- 188.66.255.254
+Broadcast:- 188.66.255.255
+
+191.76.12.98
+
+N/W ID :- 191.76.0.0
+First Valid:- 191.76.0.1
+Last Valid:- 191.76.255.254
+Broadcast:- 191.76.255.255
+
+
+11111111.11111111.00000000.00000000
+Subnet Mask= 255.255.0.0
+
+---------------------------------------
+Class C
+
+11111111.11111111.11111111.00000000
+
+N.N.N.H
+
+
+Range = 192-223
+11011111 = 223
+
+Total Number of Networks :-  31 X 255 X 255 = 20,15,775
+Total Number of Hosts :- 255 Hosts
+
+
+192.0.0.0 --> Network ID
+192.0.0.1 --> First IP
+192.0.0.2
+.
+.
+.
+...
+.
+.
+.
+192.0.0.254  --> LASt IP
+192.0.0.255  -->  Broadcast IP
+
+221.89.55.0  --> Network IP
+221.89.55.1 --> First Valid
+221.89.55.2
+.
+..
+
+.
+.
+.
+.
+.
+221.89.54.254 -> Last Valid IP
+221.89.55.255 --> Broadcast
+
+Pattern
+x.x.x.0  --> Network Id
+x.x.x.1 --> First Valid
+x.x.x.254 --> Last Valid
+x.x.x.255 --> Broadcast
+
+
+195.68.66.0
+
+N/W ID :- 195.68.66.0
+First Valid:- 195.68.66.1
+Last Valid:- 195.68.66.254
+Broadcast:- 195.68.66.255
+
+201.67.89.55
+
+N/W ID :- 201.67.89.0
+First Valid:- 201.67.89.1
+Last Valid:- 201.67.89.254
+Broadcast:- 201.67.89.255
+
+208.208.208.99
+
+N/W ID :- 208.208.208.0
+First Valid:- 208.208.208.1
+Last Valid:- 208.208.208.254
+Broadcast:- 208.208.208.255
+
+11111111.11111111.11111111.00000000
+
+Subnet mask = 255.255.255.0
+
+------------------------------------------------
+Quest
+
+1. 78.99.54.90
+
+Class :- A
+Subnet Mask:- 255.0.0.0
+Network ID:- 78.0.0.0
+First Valid:- 78.0.0.1
+Last Valid:- 78.255.255.254
+Broadcast:- 78.255.255.255
+
+2. 129.55.43.20
+
+Class :- B
+Subnet Mask:- 255.255.0.0
+Network ID:- 129.55.0.0
+First Valid:- 129.55.0.1
+Last Valid:- 129.55.255.254
+Broadcast:- 129.55.255.255
+
+3. 198.198.77.0
+
+Class :- C
+Subnet Mask:- 255.255.255.0
+Network ID:- 198.198.77.0
+First Valid:- 198.198.77.1
+Last Valid:- 198.198.77.254
+Broadcast:- 198.198.77.255
+
+
+--------------------------------------------------------
+
+Subnetting (Division Of N/W)
+
+Division of a N/W is called as subnetting.
+
+
+10.0.0.0   ==> 6 N/W
+
+Class :- A
+Subnet Mask :- 255.0.0.0
+
+11111111.11100000.00000000.00000000
+
+Formula :-  2^n >= Required Number of Networks
+
+2^n >= 6  ==> 2^n >= 2^3
+
+2^1 >= 6 --> False
+2^2 >= 6 --> False
+2^3 >= 6 --> True
+
+n=3
+
+Updated Subnet Mask:- 255.224.0.0
+
+Block Size = 256 - 224 = 32
+
+10.0.0.0 - 10.31.255.255  -> 1st Block
+
+N/W ID:- 10.0.0.0
+First Valid IP: 10.0.0.1
+Last Valid IP :- 10.31.255.254
+Broadcast IP:- 10.31.255.255
+
+
+10.32.0.0 - 10.63.255.255 -> 2nd Block
+
+N/W ID:- 10.32.0.0
+First Valid IP:- 10.32.0.1
+Last Valid IP: 10.63.255.254
+BroadcAst IP: 10.63.255.255
+
+
+10.64.0.0 - 10.95.255.255 -> 3rd Block
+
+N/W ID :- 10.64.0.0
+First Valid:- 10.64.0.1
+Last Valid :- 10.95.255.254
+Broadcast:- 10.95.255.255
+
+10.96.0.0 - 10.127.255.255 -> 4th Block
+
+N/W ID:- 10.96.0.0
+First Valid:- 10.96.0.1
+Last Valid:- 10.127.255.254
+Broadcast :- 10.127.255.255
+
+10.128.0.0 - 10.159.255.255 -> 5th Block
+
+N/W ID :- 10.128.0.0
+First Valid:- 10.128.0.1
+Last Valid :- 10.159.255.254
+Broadcast:- 10.159.255.255
+
+10.160.0.0 - 10.191.255.255 -> 6th Block
+
+N/W Id :- 10.160.0.0
+First Valid :- 10.160.0.1
+Last Valid:- 10.191.255.254
+Broadcast:- 10.191.255.255
+
+10.192.0.0 - 10.223.255.255 -> 7th block
+
+N/W ID:- 10.192.0.0
+First Valid:- 10.192.0.1
+LAst Valid :- 10.223.255.254
+Broadcast:- 10.223.255.255
+
+10.224.0.0 - 10.255.255.255 -> 8th block 
+
+N/W Id:- 10.224.0.0
+First Valid:- 10.224.0.1
+Last Valid:- 10.255.255.254
+Broadcast :- 10.255.255.255
+
+
+20.0.0.0 ==> 3
+
+Class :- A
+Subnet Mask :- 255.0.0.0
+
+11111111.11000000.00000000.00000000
+
+Formula 2^n >= Required Number of networks
+
+2^1 >= 3 -> False
+2^2 >=3 --> True
+
+n=2
+
+Updated Subnet Mask :- 255.192.0.0
+
+Block Size= 256 - 192 = 64
+
+20.0.0.0 - 20.63.255.255  --> 1st Block
+20.64.0.0 - 20.127.255.255 --> 2nd Block
+20.128.0.0 - 20.191.255.255 -> 3rd Block
+20.192.0.0 - 20.255.255.255 -> 4th Block 
+
+
+19.0.0.0 --> 15 n/W
+98.44.65.0 --> 5 n/W
+77.77.77.191 --> 10 n/w
+90.0.0.0 -> 18 n/w 
+

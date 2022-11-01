@@ -1,0 +1,2020 @@
+[root@ip-172-31-20-251 tmp]# mkdir test
+[root@ip-172-31-20-251 tmp]# ls -l
+total 20
+-rw-rw----. 1 root engineering 36 Sep 20 09:51 1.txt
+-rw-rw----. 1 root engineering  0 Sep 20 09:45 2.txt
+-rw-rw----. 1 root engineering  0 Sep 20 09:45 3.txt
+-rw-rw----. 1 root devops       0 Sep 20 09:45 4.txt
+-rw-rw----. 1 root devops      34 Sep 20 09:53 5.txt
+-r--rw----. 1 root engineering 50 Sep 20 09:23 a.txt
+-rw-rw-r--. 1 root avengers    15 Sep 20 09:20 b.txt
+-rw-rw-r--. 1 root avengers    14 Sep 20 09:20 c.txt
+drwx------. 3 root root        17 Sep 20 08:33 namespace-dev-cnfQbn
+drwx------. 3 root root        17 Sep 20 08:33 systemd-private-f754c2d18e754d558022b7cbadda3479-chronyd.service-er3c6h
+drwxr-xr-x. 2 root root         6 Sep 20 10:00 test
+[root@ip-172-31-20-251 tmp]#
+Using username "ec2-user".
+Authenticating with public key "imported-openssh-key"
+Last login: Tue Sep 20 10:00:39 2022 from 49.36.212.176
+[ec2-user@ip-172-31-20-251 ~]$ sudo su -
+Last login: Tue Sep 20 10:00:44 UTC 2022 on pts/0
+[root@ip-172-31-20-251 ~]#
+[root@ip-172-31-20-251 ~]# cd /tmp
+[root@ip-172-31-20-251 tmp]#
+[root@ip-172-31-20-251 tmp]# ls
+1.txt  3.txt  5.txt  b.txt  namespace-dev-cnfQbn                                                     test
+2.txt  4.txt  a.txt  c.txt  systemd-private-f754c2d18e754d558022b7cbadda3479-chronyd.service-er3c6h
+[root@ip-172-31-20-251 tmp]# rm -rf *
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+[root@ip-172-31-20-251 tmp]#
+[root@ip-172-31-20-251 tmp]# ls -ld /
+dr-xr-xr-x. 17 root root 224 May  3 08:58 /
+[root@ip-172-31-20-251 tmp]# chmod 550 /
+[root@ip-172-31-20-251 tmp]# ls -ld /
+dr-xr-x---. 17 root root 224 May  3 08:58 /
+[root@ip-172-31-20-251 tmp]# su vishal
+su: failed to execute /bin/bash: Permission denied
+[root@ip-172-31-20-251 tmp]# chmod 555 /
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ exit
+exit
+[root@ip-172-31-20-251 tmp]#
+Using username "ec2-user".
+Authenticating with public key "imported-openssh-key"
+Last login: Tue Sep 20 10:07:46 2022 from 49.36.212.176
+[ec2-user@ip-172-31-20-251 ~]$ sudo su -
+Last login: Tue Sep 20 10:07:52 UTC 2022 on pts/0
+[root@ip-172-31-20-251 ~]# cd /tmp
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+[root@ip-172-31-20-251 tmp]# mkdir test
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+drwxr-xr-x. 2 root root 6 Sep 20 10:30 test
+[root@ip-172-31-20-251 tmp]# chmod 777 test
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+drwxrwxrwx. 2 root root 6 Sep 20 10:30 test
+[root@ip-172-31-20-251 tmp]# chmod 755 test
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+drwxr-xr-x. 2 root root 6 Sep 20 10:30 test
+[root@ip-172-31-20-251 tmp]# cd test
+[root@ip-172-31-20-251 test]# touch 1 2 3 4 5
+[root@ip-172-31-20-251 test]# ls
+1  2  3  4  5
+[root@ip-172-31-20-251 test]# mkdir directirypermission\
+> ^C
+[root@ip-172-31-20-251 test]# mkdir directirypermission
+[root@ip-172-31-20-251 test]#
+[root@ip-172-31-20-251 test]# ls -l
+total 0
+-rw-r--r--. 1 root root 0 Sep 20 10:32 1
+-rw-r--r--. 1 root root 0 Sep 20 10:32 2
+-rw-r--r--. 1 root root 0 Sep 20 10:32 3
+-rw-r--r--. 1 root root 0 Sep 20 10:32 4
+-rw-r--r--. 1 root root 0 Sep 20 10:32 5
+drwxr-xr-x. 2 root root 6 Sep 20 10:32 directirypermission
+[root@ip-172-31-20-251 test]# cd ..
+[root@ip-172-31-20-251 tmp]# ld -ld test/
+-bash: ld: command not found
+[root@ip-172-31-20-251 tmp]# ls -ld test/
+drwxr-xr-x. 3 root root 78 Sep 20 10:32 test/
+[root@ip-172-31-20-251 tmp]# chmod 750 test/
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ ls -l
+total 0
+drwxr-x---. 3 root root 78 Sep 20 10:32 test
+[vishal@ip-172-31-20-251 tmp]$ cd test/
+bash: cd: test/: Permission denied
+[vishal@ip-172-31-20-251 tmp]$ ls test/
+ls: cannot open directory 'test/': Permission denied
+[vishal@ip-172-31-20-251 tmp]$ exit
+exit
+[root@ip-172-31-20-251 tmp]# chmod 754 test/
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+drwxr-xr--. 3 root root 78 Sep 20 10:32 test
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ ls -l
+total 0
+drwxr-xr--. 3 root root 78 Sep 20 10:32 test
+[vishal@ip-172-31-20-251 tmp]$ cd test
+bash: cd: test: Permission denied
+[vishal@ip-172-31-20-251 tmp]$ ls -l  test/
+ls: cannot access 'test/1': Permission denied
+ls: cannot access 'test/2': Permission denied
+ls: cannot access 'test/3': Permission denied
+ls: cannot access 'test/4': Permission denied
+ls: cannot access 'test/5': Permission denied
+ls: cannot access 'test/directirypermission': Permission denied
+total 0
+-????????? ? ? ? ?            ? 1
+-????????? ? ? ? ?            ? 2
+-????????? ? ? ? ?            ? 3
+-????????? ? ? ? ?            ? 4
+-????????? ? ? ? ?            ? 5
+d????????? ? ? ? ?            ? directirypermission
+[vishal@ip-172-31-20-251 tmp]$ exit
+exit
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+drwxr-xr--. 3 root root 78 Sep 20 10:32 test
+[root@ip-172-31-20-251 tmp]# chmod 755 test/
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ ls test/
+1  2  3  4  5  directirypermission
+[vishal@ip-172-31-20-251 tmp]$ ls -l test/
+total 0
+-rw-r--r--. 1 root root 0 Sep 20 10:32 1
+-rw-r--r--. 1 root root 0 Sep 20 10:32 2
+-rw-r--r--. 1 root root 0 Sep 20 10:32 3
+-rw-r--r--. 1 root root 0 Sep 20 10:32 4
+-rw-r--r--. 1 root root 0 Sep 20 10:32 5
+drwxr-xr-x. 2 root root 6 Sep 20 10:32 directirypermission
+[vishal@ip-172-31-20-251 tmp]$ cd test/
+[vishal@ip-172-31-20-251 test]$
+[vishal@ip-172-31-20-251 test]$ ls -ld
+drwxr-xr-x. 3 root root 78 Sep 20 10:32 .
+[vishal@ip-172-31-20-251 test]$ ls -ld test
+ls: cannot access 'test': No such file or directory
+[vishal@ip-172-31-20-251 test]$ cd ..
+[vishal@ip-172-31-20-251 tmp]$ ls -ld test/
+drwxr-xr-x. 3 root root 78 Sep 20 10:32 test/
+[vishal@ip-172-31-20-251 tmp]$ cd test
+[vishal@ip-172-31-20-251 test]$ ls -l
+total 0
+-rw-r--r--. 1 root root 0 Sep 20 10:32 1
+-rw-r--r--. 1 root root 0 Sep 20 10:32 2
+-rw-r--r--. 1 root root 0 Sep 20 10:32 3
+-rw-r--r--. 1 root root 0 Sep 20 10:32 4
+-rw-r--r--. 1 root root 0 Sep 20 10:32 5
+drwxr-xr-x. 2 root root 6 Sep 20 10:32 directirypermission
+[vishal@ip-172-31-20-251 test]$ touch testing.txt
+touch: cannot touch 'testing.txt': Permission denied
+[vishal@ip-172-31-20-251 test]$ exit
+exit
+[root@ip-172-31-20-251 tmp]# chmod 757 test/
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ cd test/
+[vishal@ip-172-31-20-251 test]$ touch testing.txt
+[vishal@ip-172-31-20-251 test]$ ls -ld
+drwxr-xrwx. 3 root root 97 Sep 20 10:45 .
+[vishal@ip-172-31-20-251 test]$ exit
+exit
+[root@ip-172-31-20-251 tmp]#
+[root@ip-172-31-20-251 tmp]# ls -ld /mnt
+drwxr-xr-x. 2 root root 6 Jun 21  2021 /mnt
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ pwd
+/tmp
+[vishal@ip-172-31-20-251 tmp]$ cd /mnt
+[vishal@ip-172-31-20-251 mnt]$ ls -ld
+drwxr-xr-x. 2 root root 6 Jun 21  2021 .
+[vishal@ip-172-31-20-251 mnt]$ touch a.txt
+touch: cannot touch 'a.txt': Permission denied
+[vishal@ip-172-31-20-251 mnt]$ exit
+exit
+[root@ip-172-31-20-251 tmp]# chmod 757 /mnt
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ ls -ld
+drwxrwxrwt. 8 root root 105 Sep 20 10:52 .
+[vishal@ip-172-31-20-251 tmp]$ ls -ld /mnt
+drwxr-xrwx. 2 root root 6 Jun 21  2021 /mnt
+[vishal@ip-172-31-20-251 tmp]$ touch a.txt
+[vishal@ip-172-31-20-251 tmp]$ ls
+a.txt  test
+[vishal@ip-172-31-20-251 tmp]$ ls /mnt
+[vishal@ip-172-31-20-251 tmp]$ touch /mnt/a.txt
+[vishal@ip-172-31-20-251 tmp]$ ls /mnt
+a.txt
+[vishal@ip-172-31-20-251 tmp]$ exit
+exit
+[root@ip-172-31-20-251 tmp]# chmod 755 /mnt
+[root@ip-172-31-20-251 tmp]# rm -rf *
+[root@ip-172-31-20-251 tmp]# cd /mnt
+[root@ip-172-31-20-251 mnt]# ls
+a.txt
+[root@ip-172-31-20-251 mnt]# rm -f a.txt
+[root@ip-172-31-20-251 mnt]#
+[root@ip-172-31-20-251 mnt]# cd /tmp
+[root@ip-172-31-20-251 tmp]#
+[root@ip-172-31-20-251 tmp]# touch a.txt b.txt
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+-rw-r--r--. 1 root root 0 Sep 20 10:55 a.txt
+-rw-r--r--. 1 root root 0 Sep 20 10:55 b.txt
+[root@ip-172-31-20-251 tmp]# chmod 700 a.txt
+[root@ip-172-31-20-251 tmp]# cd /mnt
+[root@ip-172-31-20-251 mnt]# touch c.txt
+[root@ip-172-31-20-251 mnt]# touch d.txt
+[root@ip-172-31-20-251 mnt]# chmod 400 c.txt
+[root@ip-172-31-20-251 mnt]# chmod 777 d.txt
+[root@ip-172-31-20-251 mnt]# ls -l
+total 0
+-r--------. 1 root root 0 Sep 20 10:56 c.txt
+-rwxrwxrwx. 1 root root 0 Sep 20 10:56 d.txt
+[root@ip-172-31-20-251 mnt]# cd /tmp
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ ls
+a.txt  b.txt
+[vishal@ip-172-31-20-251 tmp]$ ls -l
+total 0
+-rwx------. 1 root root 0 Sep 20 10:55 a.txt
+-rw-r--r--. 1 root root 0 Sep 20 10:55 b.txt
+[vishal@ip-172-31-20-251 tmp]$ cp b.txt  /mnt
+cp: cannot create regular file '/mnt/b.txt': Permission denied
+[vishal@ip-172-31-20-251 tmp]$ exit
+exit
+[root@ip-172-31-20-251 tmp]# chmod 757 /mnt
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ cp b.txt  /mnt
+[vishal@ip-172-31-20-251 tmp]$ ls /mnt\
+> ^C
+[vishal@ip-172-31-20-251 tmp]$ ls /mnt
+b.txt  c.txt  d.txt
+[vishal@ip-172-31-20-251 tmp]$ # Syntax  cp  <source location>   <destination location>
+[vishal@ip-172-31-20-251 tmp]$ exit
+exit
+[root@ip-172-31-20-251 tmp]# s
+-bash: s: command not found
+[root@ip-172-31-20-251 tmp]# ls
+a.txt  b.txt
+[root@ip-172-31-20-251 tmp]# mkdir test
+[root@ip-172-31-20-251 tmp]# cd test
+[root@ip-172-31-20-251 test]# touch a.txt
+[root@ip-172-31-20-251 test]# cd ../..
+[root@ip-172-31-20-251 /]# cd /tmp
+[root@ip-172-31-20-251 tmp]#
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+-rwx------. 1 root root  0 Sep 20 10:55 a.txt
+-rw-r--r--. 1 root root  0 Sep 20 10:55 b.txt
+drwxr-xr-x. 2 root root 19 Sep 20 11:00 test
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ cp /tmp/test/ /mnt
+cp: -r not specified; omitting directory '/tmp/test/'
+[vishal@ip-172-31-20-251 tmp]$ man cp
+[vishal@ip-172-31-20-251 tmp]$ cp -r  /tmp/test/ /mnt
+[vishal@ip-172-31-20-251 tmp]$ ls /mnt
+b.txt  c.txt  d.txt  test
+[vishal@ip-172-31-20-251 tmp]$ exit
+exit
+[root@ip-172-31-20-251 tmp]# #Syntax  mv  <source location>  <destination location>
+[root@ip-172-31-20-251 tmp]# mkdir banana
+[root@ip-172-31-20-251 tmp]# touch banana/1.txt
+[root@ip-172-31-20-251 tmp]# touch copylearning.txt
+[root@ip-172-31-20-251 tmp]# pwd
+/tmp
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ mv /tmp/copylearning.txt  /mnt
+mv: cannot move '/tmp/copylearning.txt' to '/mnt/copylearning.txt': Operation not permitted
+[vishal@ip-172-31-20-251 tmp]$ ls -l
+total 0
+-rwx------. 1 root root  0 Sep 20 10:55 a.txt
+drwxr-xr-x. 2 root root 19 Sep 20 11:04 banana
+-rw-r--r--. 1 root root  0 Sep 20 10:55 b.txt
+-rw-r--r--. 1 root root  0 Sep 20 11:04 copylearning.txt
+drwxr-xr-x. 2 root root 19 Sep 20 11:00 test
+[vishal@ip-172-31-20-251 tmp]$ ld -ld
+bash: ld: command not found
+[vishal@ip-172-31-20-251 tmp]$ ls -ld
+drwxrwxrwt. 9 root root 169 Sep 20 11:04 .
+[vishal@ip-172-31-20-251 tmp]$ chmod 777 copylearning.txt
+chmod: changing permissions of 'copylearning.txt': Operation not permitted
+[vishal@ip-172-31-20-251 tmp]$ exit
+exit
+[root@ip-172-31-20-251 tmp]# chmod 777 copylearning.txt
+[root@ip-172-31-20-251 tmp]# ls
+a.txt  banana  b.txt  copylearning.txt  test
+[root@ip-172-31-20-251 tmp]# su vishal
+[vishal@ip-172-31-20-251 tmp]$ mv /tmp/copylearning.txt  /mnt
+mv: cannot move '/tmp/copylearning.txt' to '/mnt/copylearning.txt': Operation not permitted
+[vishal@ip-172-31-20-251 tmp]$ ls -ld /mnt
+drwxr-xrwx. 3 root root 57 Sep 20 11:01 /mnt
+[vishal@ip-172-31-20-251 tmp]$
+Using username "ec2-user".
+Authenticating with public key "imported-openssh-key"
+Last login: Tue Sep 20 10:27:24 2022 from 49.36.212.176
+[ec2-user@ip-172-31-20-251 ~]$ sudo su -
+Last login: Tue Sep 20 10:27:30 UTC 2022 on pts/0
+[root@ip-172-31-20-251 ~]#
+[root@ip-172-31-20-251 ~]# cd /tmp
+[root@ip-172-31-20-251 tmp]#
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+-rwx------. 1 root root  0 Sep 20 10:55 a.txt
+drwxr-xr-x. 2 root root 19 Sep 20 11:04 banana
+-rw-r--r--. 1 root root  0 Sep 20 10:55 b.txt
+-rwxrwxrwx. 1 root root  0 Sep 20 11:04 copylearning.txt
+drwxr-xr-x. 2 root root 19 Sep 20 11:00 test
+[root@ip-172-31-20-251 tmp]#
+[root@ip-172-31-20-251 tmp]# mkdir absolute relative
+[root@ip-172-31-20-251 tmp]# touch absolute/a.txt  absolute/b.txt absolute/c.txt
+[root@ip-172-31-20-251 tmp]# ls -l absolute/
+total 0
+-rw-r--r--. 1 root root 0 Sep 20 11:25 a.txt
+-rw-r--r--. 1 root root 0 Sep 20 11:25 b.txt
+-rw-r--r--. 1 root root 0 Sep 20 11:25 c.txt
+[root@ip-172-31-20-251 tmp]# touch relative/d.txt
+[root@ip-172-31-20-251 tmp]# mkdir relative/test
+[root@ip-172-31-20-251 tmp]# ls -l relative/
+total 0
+-rw-r--r--. 1 root root 0 Sep 20 11:26 d.txt
+drwxr-xr-x. 2 root root 6 Sep 20 11:26 test
+[root@ip-172-31-20-251 tmp]# cp absolute/a.txt  relative/test/
+[root@ip-172-31-20-251 tmp]# cd relative/test/
+[root@ip-172-31-20-251 test]# ls
+a.txt
+[root@ip-172-31-20-251 test]# cd ..
+[root@ip-172-31-20-251 relative]# cd ..
+[root@ip-172-31-20-251 tmp]# cp  /etc/passwd  relative/test/
+[root@ip-172-31-20-251 tmp]# ls -l relative/test
+total 4
+-rw-r--r--. 1 root root    0 Sep 20 11:27 a.txt
+-rw-r--r--. 1 root root 1535 Sep 20 11:30 passwd
+[root@ip-172-31-20-251 tmp]# pwd
+/tmp
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+drwxr-xr-x. 2 root root 45 Sep 20 11:25 absolute
+-rwx------. 1 root root  0 Sep 20 10:55 a.txt
+drwxr-xr-x. 2 root root 19 Sep 20 11:04 banana
+-rw-r--r--. 1 root root  0 Sep 20 10:55 b.txt
+-rwxrwxrwx. 1 root root  0 Sep 20 11:04 copylearning.txt
+drwxr-xr-x. 3 root root 31 Sep 20 11:26 relative
+drwxr-xr-x. 2 root root 19 Sep 20 11:00 test
+[root@ip-172-31-20-251 tmp]# mv relative/  absolute/
+[root@ip-172-31-20-251 tmp]# ls -l
+total 0
+drwxr-xr-x. 3 root root 61 Sep 20 11:32 absolute
+-rwx------. 1 root root  0 Sep 20 10:55 a.txt
+drwxr-xr-x. 2 root root 19 Sep 20 11:04 banana
+-rw-r--r--. 1 root root  0 Sep 20 10:55 b.txt
+-rwxrwxrwx. 1 root root  0 Sep 20 11:04 copylearning.txt
+drwxr-xr-x. 2 root root 19 Sep 20 11:00 test
+[root@ip-172-31-20-251 tmp]# cd absolute/
+[root@ip-172-31-20-251 absolute]# ls -l
+total 0
+-rw-r--r--. 1 root root  0 Sep 20 11:25 a.txt
+-rw-r--r--. 1 root root  0 Sep 20 11:25 b.txt
+-rw-r--r--. 1 root root  0 Sep 20 11:25 c.txt
+drwxr-xr-x. 3 root root 31 Sep 20 11:26 relative
+[root@ip-172-31-20-251 absolute]# cd relative/
+[root@ip-172-31-20-251 relative]# ls -l
+total 0
+-rw-r--r--. 1 root root  0 Sep 20 11:26 d.txt
+drwxr-xr-x. 2 root root 33 Sep 20 11:30 test
+[root@ip-172-31-20-251 relative]# cd test/
+[root@ip-172-31-20-251 test]# ls -l
+total 4
+-rw-r--r--. 1 root root    0 Sep 20 11:27 a.txt
+-rw-r--r--. 1 root root 1535 Sep 20 11:30 passwd
+[root@ip-172-31-20-251 test]#
+[root@ip-172-31-20-251 test]# cd
+[root@ip-172-31-20-251 ~]#
+[root@ip-172-31-20-251 ~]#
+Using username "ec2-user".
+Authenticating with public key "imported-openssh-key"
+Last login: Tue Sep 20 11:25:00 2022 from 49.36.212.176
+[ec2-user@ip-172-31-20-251 ~]$ sudo su -
+Last login: Tue Sep 20 11:25:02 UTC 2022 on pts/0
+[root@ip-172-31-20-251 ~]# cp /etc/passwd
+cp: missing destination file operand after '/etc/passwd'
+Try 'cp --help' for more information.
+[root@ip-172-31-20-251 ~]# cp /etc/passwd .
+[root@ip-172-31-20-251 ~]# ls -l
+total 4
+-rwxr-xrwx. 1 root root    0 Sep 20 08:44 a.txt
+-rw-r--r--. 1 root root    0 Sep 20 09:09 b.txt
+-rw-r--r--. 1 root root    0 Sep 20 09:09 c.txt
+-rw-r--r--. 1 root root 1535 Sep 20 11:39 passwd
+[root@ip-172-31-20-251 ~]#
+[root@ip-172-31-20-251 ~]# vi passwd
+[root@ip-172-31-20-251 ~]# cat passwd
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+games:x:12:100:games:/usr/games:/sbin/nologin
+ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+dbus:x:81:81:System message bus:/:/sbin/nologin
+tss:x:59:59:Account used for TPM access:/dev/null:/sbin/nologin
+systemd-coredump:x:999:997:systemd Core Dumper:/:/sbin/nologin
+systemd-resolve:x:193:193:systemd Resolver:/:/sbin/nologin
+polkitd:x:998:996:User for polkitd:/:/sbin/nologin
+unbound:x:997:994:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+sssd:x:996:993:User for sssd:/:/sbin/nologin
+chrony:x:995:992::/var/lib/chrony:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+ec2-user:x:1000:1000:Cloud User:/home/ec2-user:/bin/bash
+vishal:x:1001:1001::/home/vishal:/bin/bash
+manvitha:x:1002:1002::/home/manvitha:/bin/bash
+hussain:x:1003:1003::/home/hussain:/bin/bash
+stephen:x:1004:1004::/home/stephen:/bin/bash
+professor:x:1005:1007::/home/professor:/bin/bash
+tokyo:x:1006:1008::/home/tokyo:/bin/bash
+jimin:x:1007:1009::/home/jimin:/bin/bash
+bts:x:1008:1010::/home/bts:/bin/bash
+kpop:x:1009:1011::/home/kpop:/bin/bash
+prasiddh:x:1010:1014::/home/prasiddh:/bin/bash
+[root@ip-172-31-20-251 ~]#
+[root@ip-172-31-20-251 ~]# more passwd
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+[root@ip-172-31-20-251 ~]#
+[root@ip-172-31-20-251 ~]# less passwd
+[root@ip-172-31-20-251 ~]# man cat
+[root@ip-172-31-20-251 ~]# cat -n passwd
+     1  root:x:0:0:root:/root:/bin/bash
+     2  root:x:0:0:root:/root:/bin/bash
+     3  root:x:0:0:root:/root:/bin/bash
+     4  root:x:0:0:root:/root:/bin/bash
+     5  root:x:0:0:root:/root:/bin/bash
+     6  root:x:0:0:root:/root:/bin/bash
+     7  root:x:0:0:root:/root:/bin/bash
+     8  root:x:0:0:root:/root:/bin/bash
+     9  root:x:0:0:root:/root:/bin/bash
+    10  root:x:0:0:root:/root:/bin/bash
+    11  root:x:0:0:root:/root:/bin/bash
+    12  root:x:0:0:root:/root:/bin/bash
+    13  root:x:0:0:root:/root:/bin/bash
+    14  root:x:0:0:root:/root:/bin/bash
+    15  root:x:0:0:root:/root:/bin/bash
+    16  root:x:0:0:root:/root:/bin/bash
+    17  root:x:0:0:root:/root:/bin/bash
+    18  root:x:0:0:root:/root:/bin/bash
+    19  root:x:0:0:root:/root:/bin/bash
+    20  root:x:0:0:root:/root:/bin/bash
+    21  root:x:0:0:root:/root:/bin/bash
+    22  root:x:0:0:root:/root:/bin/bash
+    23  root:x:0:0:root:/root:/bin/bash
+    24  root:x:0:0:root:/root:/bin/bash
+    25  root:x:0:0:root:/root:/bin/bash
+    26  root:x:0:0:root:/root:/bin/bash
+    27  root:x:0:0:root:/root:/bin/bash
+    28  root:x:0:0:root:/root:/bin/bash
+    29  root:x:0:0:root:/root:/bin/bash
+    30  root:x:0:0:root:/root:/bin/bash
+    31  root:x:0:0:root:/root:/bin/bash
+    32  root:x:0:0:root:/root:/bin/bash
+    33  root:x:0:0:root:/root:/bin/bash
+    34  root:x:0:0:root:/root:/bin/bash
+    35  root:x:0:0:root:/root:/bin/bash
+    36  root:x:0:0:root:/root:/bin/bash
+    37  root:x:0:0:root:/root:/bin/bash
+    38  root:x:0:0:root:/root:/bin/bash
+    39  root:x:0:0:root:/root:/bin/bash
+    40  root:x:0:0:root:/root:/bin/bash
+    41  root:x:0:0:root:/root:/bin/bash
+    42  root:x:0:0:root:/root:/bin/bash
+    43  root:x:0:0:root:/root:/bin/bash
+    44  root:x:0:0:root:/root:/bin/bash
+    45  bin:x:1:1:bin:/bin:/sbin/nologin
+    46  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    47  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    48  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    49  sync:x:5:0:sync:/sbin:/bin/sync
+    50  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    51  halt:x:7:0:halt:/sbin:/sbin/halt
+    52  bin:x:1:1:bin:/bin:/sbin/nologin
+    53  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    54  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    55  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    56  sync:x:5:0:sync:/sbin:/bin/sync
+    57  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    58  halt:x:7:0:halt:/sbin:/sbin/halt
+    59  bin:x:1:1:bin:/bin:/sbin/nologin
+    60  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    61  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    62  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    63  sync:x:5:0:sync:/sbin:/bin/sync
+    64  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    65  halt:x:7:0:halt:/sbin:/sbin/halt
+    66  bin:x:1:1:bin:/bin:/sbin/nologin
+    67  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    68  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    69  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    70  sync:x:5:0:sync:/sbin:/bin/sync
+    71  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    72  halt:x:7:0:halt:/sbin:/sbin/halt
+    73  bin:x:1:1:bin:/bin:/sbin/nologin
+    74  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    75  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    76  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    77  sync:x:5:0:sync:/sbin:/bin/sync
+    78  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    79  halt:x:7:0:halt:/sbin:/sbin/halt
+    80  bin:x:1:1:bin:/bin:/sbin/nologin
+    81  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    82  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    83  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    84  sync:x:5:0:sync:/sbin:/bin/sync
+    85  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    86  halt:x:7:0:halt:/sbin:/sbin/halt
+    87  bin:x:1:1:bin:/bin:/sbin/nologin
+    88  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    89  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    90  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    91  sync:x:5:0:sync:/sbin:/bin/sync
+    92  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    93  halt:x:7:0:halt:/sbin:/sbin/halt
+    94  bin:x:1:1:bin:/bin:/sbin/nologin
+    95  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    96  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    97  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    98  sync:x:5:0:sync:/sbin:/bin/sync
+    99  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   100  halt:x:7:0:halt:/sbin:/sbin/halt
+   101  bin:x:1:1:bin:/bin:/sbin/nologin
+   102  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   103  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   104  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   105  sync:x:5:0:sync:/sbin:/bin/sync
+   106  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   107  halt:x:7:0:halt:/sbin:/sbin/halt
+   108  bin:x:1:1:bin:/bin:/sbin/nologin
+   109  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   110  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   111  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   112  sync:x:5:0:sync:/sbin:/bin/sync
+   113  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   114  halt:x:7:0:halt:/sbin:/sbin/halt
+   115  bin:x:1:1:bin:/bin:/sbin/nologin
+   116  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   117  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   118  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   119  sync:x:5:0:sync:/sbin:/bin/sync
+   120  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   121  halt:x:7:0:halt:/sbin:/sbin/halt
+   122  bin:x:1:1:bin:/bin:/sbin/nologin
+   123  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   124  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   125  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   126  sync:x:5:0:sync:/sbin:/bin/sync
+   127  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   128  halt:x:7:0:halt:/sbin:/sbin/halt
+   129  bin:x:1:1:bin:/bin:/sbin/nologin
+   130  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   131  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   132  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   133  sync:x:5:0:sync:/sbin:/bin/sync
+   134  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   135  halt:x:7:0:halt:/sbin:/sbin/halt
+   136  bin:x:1:1:bin:/bin:/sbin/nologin
+   137  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   138  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   139  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   140  sync:x:5:0:sync:/sbin:/bin/sync
+   141  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   142  halt:x:7:0:halt:/sbin:/sbin/halt
+   143  bin:x:1:1:bin:/bin:/sbin/nologin
+   144  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   145  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   146  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   147  sync:x:5:0:sync:/sbin:/bin/sync
+   148  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   149  halt:x:7:0:halt:/sbin:/sbin/halt
+   150  bin:x:1:1:bin:/bin:/sbin/nologin
+   151  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   152  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   153  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   154  sync:x:5:0:sync:/sbin:/bin/sync
+   155  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   156  halt:x:7:0:halt:/sbin:/sbin/halt
+   157  bin:x:1:1:bin:/bin:/sbin/nologin
+   158  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   159  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   160  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   161  sync:x:5:0:sync:/sbin:/bin/sync
+   162  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   163  halt:x:7:0:halt:/sbin:/sbin/halt
+   164  bin:x:1:1:bin:/bin:/sbin/nologin
+   165  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   166  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   167  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   168  sync:x:5:0:sync:/sbin:/bin/sync
+   169  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   170  halt:x:7:0:halt:/sbin:/sbin/halt
+   171  bin:x:1:1:bin:/bin:/sbin/nologin
+   172  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   173  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   174  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   175  sync:x:5:0:sync:/sbin:/bin/sync
+   176  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   177  halt:x:7:0:halt:/sbin:/sbin/halt
+   178  bin:x:1:1:bin:/bin:/sbin/nologin
+   179  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   180  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   181  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   182  sync:x:5:0:sync:/sbin:/bin/sync
+   183  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   184  halt:x:7:0:halt:/sbin:/sbin/halt
+   185  bin:x:1:1:bin:/bin:/sbin/nologin
+   186  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   187  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   188  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   189  sync:x:5:0:sync:/sbin:/bin/sync
+   190  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   191  halt:x:7:0:halt:/sbin:/sbin/halt
+   192  bin:x:1:1:bin:/bin:/sbin/nologin
+   193  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   194  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   195  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   196  sync:x:5:0:sync:/sbin:/bin/sync
+   197  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   198  halt:x:7:0:halt:/sbin:/sbin/halt
+   199  bin:x:1:1:bin:/bin:/sbin/nologin
+   200  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   201  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   202  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   203  sync:x:5:0:sync:/sbin:/bin/sync
+   204  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   205  halt:x:7:0:halt:/sbin:/sbin/halt
+   206  bin:x:1:1:bin:/bin:/sbin/nologin
+   207  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   208  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   209  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   210  sync:x:5:0:sync:/sbin:/bin/sync
+   211  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   212  halt:x:7:0:halt:/sbin:/sbin/halt
+   213  bin:x:1:1:bin:/bin:/sbin/nologin
+   214  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   215  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   216  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   217  sync:x:5:0:sync:/sbin:/bin/sync
+   218  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   219  halt:x:7:0:halt:/sbin:/sbin/halt
+   220  bin:x:1:1:bin:/bin:/sbin/nologin
+   221  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   222  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   223  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   224  sync:x:5:0:sync:/sbin:/bin/sync
+   225  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   226  halt:x:7:0:halt:/sbin:/sbin/halt
+   227  bin:x:1:1:bin:/bin:/sbin/nologin
+   228  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   229  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   230  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   231  sync:x:5:0:sync:/sbin:/bin/sync
+   232  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   233  halt:x:7:0:halt:/sbin:/sbin/halt
+   234  bin:x:1:1:bin:/bin:/sbin/nologin
+   235  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   236  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   237  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   238  sync:x:5:0:sync:/sbin:/bin/sync
+   239  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   240  halt:x:7:0:halt:/sbin:/sbin/halt
+   241  bin:x:1:1:bin:/bin:/sbin/nologin
+   242  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   243  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   244  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   245  sync:x:5:0:sync:/sbin:/bin/sync
+   246  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   247  halt:x:7:0:halt:/sbin:/sbin/halt
+   248  bin:x:1:1:bin:/bin:/sbin/nologin
+   249  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   250  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   251  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   252  sync:x:5:0:sync:/sbin:/bin/sync
+   253  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   254  halt:x:7:0:halt:/sbin:/sbin/halt
+   255  bin:x:1:1:bin:/bin:/sbin/nologin
+   256  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   257  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   258  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   259  sync:x:5:0:sync:/sbin:/bin/sync
+   260  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   261  halt:x:7:0:halt:/sbin:/sbin/halt
+   262  bin:x:1:1:bin:/bin:/sbin/nologin
+   263  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   264  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   265  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   266  sync:x:5:0:sync:/sbin:/bin/sync
+   267  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   268  halt:x:7:0:halt:/sbin:/sbin/halt
+   269  bin:x:1:1:bin:/bin:/sbin/nologin
+   270  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   271  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   272  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   273  sync:x:5:0:sync:/sbin:/bin/sync
+   274  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   275  halt:x:7:0:halt:/sbin:/sbin/halt
+   276  bin:x:1:1:bin:/bin:/sbin/nologin
+   277  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   278  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   279  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   280  sync:x:5:0:sync:/sbin:/bin/sync
+   281  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   282  halt:x:7:0:halt:/sbin:/sbin/halt
+   283  bin:x:1:1:bin:/bin:/sbin/nologin
+   284  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   285  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   286  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   287  sync:x:5:0:sync:/sbin:/bin/sync
+   288  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   289  halt:x:7:0:halt:/sbin:/sbin/halt
+   290  bin:x:1:1:bin:/bin:/sbin/nologin
+   291  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   292  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   293  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   294  sync:x:5:0:sync:/sbin:/bin/sync
+   295  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   296  halt:x:7:0:halt:/sbin:/sbin/halt
+   297  bin:x:1:1:bin:/bin:/sbin/nologin
+   298  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   299  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   300  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   301  sync:x:5:0:sync:/sbin:/bin/sync
+   302  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   303  halt:x:7:0:halt:/sbin:/sbin/halt
+   304  bin:x:1:1:bin:/bin:/sbin/nologin
+   305  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   306  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   307  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   308  sync:x:5:0:sync:/sbin:/bin/sync
+   309  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   310  halt:x:7:0:halt:/sbin:/sbin/halt
+   311  bin:x:1:1:bin:/bin:/sbin/nologin
+   312  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   313  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   314  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   315  sync:x:5:0:sync:/sbin:/bin/sync
+   316  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   317  halt:x:7:0:halt:/sbin:/sbin/halt
+   318  bin:x:1:1:bin:/bin:/sbin/nologin
+   319  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   320  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   321  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   322  sync:x:5:0:sync:/sbin:/bin/sync
+   323  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   324  halt:x:7:0:halt:/sbin:/sbin/halt
+   325  bin:x:1:1:bin:/bin:/sbin/nologin
+   326  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   327  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   328  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   329  sync:x:5:0:sync:/sbin:/bin/sync
+   330  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   331  halt:x:7:0:halt:/sbin:/sbin/halt
+   332  bin:x:1:1:bin:/bin:/sbin/nologin
+   333  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   334  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   335  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   336  sync:x:5:0:sync:/sbin:/bin/sync
+   337  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   338  halt:x:7:0:halt:/sbin:/sbin/halt
+   339  bin:x:1:1:bin:/bin:/sbin/nologin
+   340  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   341  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   342  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   343  sync:x:5:0:sync:/sbin:/bin/sync
+   344  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   345  halt:x:7:0:halt:/sbin:/sbin/halt
+   346  bin:x:1:1:bin:/bin:/sbin/nologin
+   347  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   348  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   349  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   350  sync:x:5:0:sync:/sbin:/bin/sync
+   351  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   352  halt:x:7:0:halt:/sbin:/sbin/halt
+   353  mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+   354  operator:x:11:0:operator:/root:/sbin/nologin
+   355  games:x:12:100:games:/usr/games:/sbin/nologin
+   356  ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+   357  nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+   358  dbus:x:81:81:System message bus:/:/sbin/nologin
+   359  tss:x:59:59:Account used for TPM access:/dev/null:/sbin/nologin
+   360  systemd-coredump:x:999:997:systemd Core Dumper:/:/sbin/nologin
+   361  systemd-resolve:x:193:193:systemd Resolver:/:/sbin/nologin
+   362  polkitd:x:998:996:User for polkitd:/:/sbin/nologin
+   363  unbound:x:997:994:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+   364  sssd:x:996:993:User for sssd:/:/sbin/nologin
+   365  chrony:x:995:992::/var/lib/chrony:/sbin/nologin
+   366  sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+   367  ec2-user:x:1000:1000:Cloud User:/home/ec2-user:/bin/bash
+   368  vishal:x:1001:1001::/home/vishal:/bin/bash
+   369  manvitha:x:1002:1002::/home/manvitha:/bin/bash
+   370  hussain:x:1003:1003::/home/hussain:/bin/bash
+   371  stephen:x:1004:1004::/home/stephen:/bin/bash
+   372  professor:x:1005:1007::/home/professor:/bin/bash
+   373  tokyo:x:1006:1008::/home/tokyo:/bin/bash
+   374  jimin:x:1007:1009::/home/jimin:/bin/bash
+   375  bts:x:1008:1010::/home/bts:/bin/bash
+   376  kpop:x:1009:1011::/home/kpop:/bin/bash
+   377  prasiddh:x:1010:1014::/home/prasiddh:/bin/bash
+[root@ip-172-31-20-251 ~]# cat -n passwd | less
+[root@ip-172-31-20-251 ~]#
+[root@ip-172-31-20-251 ~]# cat -n passwd
+     1  root:x:0:0:root:/root:/bin/bash
+     2  root:x:0:0:root:/root:/bin/bash
+     3  root:x:0:0:root:/root:/bin/bash
+     4  root:x:0:0:root:/root:/bin/bash
+     5  root:x:0:0:root:/root:/bin/bash
+     6  root:x:0:0:root:/root:/bin/bash
+     7  root:x:0:0:root:/root:/bin/bash
+     8  root:x:0:0:root:/root:/bin/bash
+     9  root:x:0:0:root:/root:/bin/bash
+    10  root:x:0:0:root:/root:/bin/bash
+    11  root:x:0:0:root:/root:/bin/bash
+    12  root:x:0:0:root:/root:/bin/bash
+    13  root:x:0:0:root:/root:/bin/bash
+    14  root:x:0:0:root:/root:/bin/bash
+    15  root:x:0:0:root:/root:/bin/bash
+    16  root:x:0:0:root:/root:/bin/bash
+    17  root:x:0:0:root:/root:/bin/bash
+    18  root:x:0:0:root:/root:/bin/bash
+    19  root:x:0:0:root:/root:/bin/bash
+    20  root:x:0:0:root:/root:/bin/bash
+    21  root:x:0:0:root:/root:/bin/bash
+    22  root:x:0:0:root:/root:/bin/bash
+    23  root:x:0:0:root:/root:/bin/bash
+    24  root:x:0:0:root:/root:/bin/bash
+    25  root:x:0:0:root:/root:/bin/bash
+    26  root:x:0:0:root:/root:/bin/bash
+    27  root:x:0:0:root:/root:/bin/bash
+    28  root:x:0:0:root:/root:/bin/bash
+    29  root:x:0:0:root:/root:/bin/bash
+    30  root:x:0:0:root:/root:/bin/bash
+    31  root:x:0:0:root:/root:/bin/bash
+    32  root:x:0:0:root:/root:/bin/bash
+    33  root:x:0:0:root:/root:/bin/bash
+    34  root:x:0:0:root:/root:/bin/bash
+    35  root:x:0:0:root:/root:/bin/bash
+    36  root:x:0:0:root:/root:/bin/bash
+    37  root:x:0:0:root:/root:/bin/bash
+    38  root:x:0:0:root:/root:/bin/bash
+    39  root:x:0:0:root:/root:/bin/bash
+    40  root:x:0:0:root:/root:/bin/bash
+    41  root:x:0:0:root:/root:/bin/bash
+    42  root:x:0:0:root:/root:/bin/bash
+    43  root:x:0:0:root:/root:/bin/bash
+    44  root:x:0:0:root:/root:/bin/bash
+    45  bin:x:1:1:bin:/bin:/sbin/nologin
+    46  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    47  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    48  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    49  sync:x:5:0:sync:/sbin:/bin/sync
+    50  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    51  halt:x:7:0:halt:/sbin:/sbin/halt
+    52  bin:x:1:1:bin:/bin:/sbin/nologin
+    53  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    54  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    55  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    56  sync:x:5:0:sync:/sbin:/bin/sync
+    57  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    58  halt:x:7:0:halt:/sbin:/sbin/halt
+    59  bin:x:1:1:bin:/bin:/sbin/nologin
+    60  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    61  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    62  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    63  sync:x:5:0:sync:/sbin:/bin/sync
+    64  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    65  halt:x:7:0:halt:/sbin:/sbin/halt
+    66  bin:x:1:1:bin:/bin:/sbin/nologin
+    67  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    68  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    69  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    70  sync:x:5:0:sync:/sbin:/bin/sync
+    71  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    72  halt:x:7:0:halt:/sbin:/sbin/halt
+    73  bin:x:1:1:bin:/bin:/sbin/nologin
+    74  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    75  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    76  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    77  sync:x:5:0:sync:/sbin:/bin/sync
+    78  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    79  halt:x:7:0:halt:/sbin:/sbin/halt
+    80  bin:x:1:1:bin:/bin:/sbin/nologin
+    81  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    82  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    83  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    84  sync:x:5:0:sync:/sbin:/bin/sync
+    85  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    86  halt:x:7:0:halt:/sbin:/sbin/halt
+    87  bin:x:1:1:bin:/bin:/sbin/nologin
+    88  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    89  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    90  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    91  sync:x:5:0:sync:/sbin:/bin/sync
+    92  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+    93  halt:x:7:0:halt:/sbin:/sbin/halt
+    94  bin:x:1:1:bin:/bin:/sbin/nologin
+    95  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+    96  adm:x:3:4:adm:/var/adm:/sbin/nologin
+    97  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+    98  sync:x:5:0:sync:/sbin:/bin/sync
+    99  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   100  halt:x:7:0:halt:/sbin:/sbin/halt
+   101  bin:x:1:1:bin:/bin:/sbin/nologin
+   102  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   103  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   104  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   105  sync:x:5:0:sync:/sbin:/bin/sync
+   106  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   107  halt:x:7:0:halt:/sbin:/sbin/halt
+   108  bin:x:1:1:bin:/bin:/sbin/nologin
+   109  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   110  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   111  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   112  sync:x:5:0:sync:/sbin:/bin/sync
+   113  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   114  halt:x:7:0:halt:/sbin:/sbin/halt
+   115  bin:x:1:1:bin:/bin:/sbin/nologin
+   116  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   117  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   118  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   119  sync:x:5:0:sync:/sbin:/bin/sync
+   120  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   121  halt:x:7:0:halt:/sbin:/sbin/halt
+   122  bin:x:1:1:bin:/bin:/sbin/nologin
+   123  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   124  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   125  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   126  sync:x:5:0:sync:/sbin:/bin/sync
+   127  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   128  halt:x:7:0:halt:/sbin:/sbin/halt
+   129  bin:x:1:1:bin:/bin:/sbin/nologin
+   130  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   131  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   132  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   133  sync:x:5:0:sync:/sbin:/bin/sync
+   134  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   135  halt:x:7:0:halt:/sbin:/sbin/halt
+   136  bin:x:1:1:bin:/bin:/sbin/nologin
+   137  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   138  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   139  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   140  sync:x:5:0:sync:/sbin:/bin/sync
+   141  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   142  halt:x:7:0:halt:/sbin:/sbin/halt
+   143  bin:x:1:1:bin:/bin:/sbin/nologin
+   144  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   145  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   146  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   147  sync:x:5:0:sync:/sbin:/bin/sync
+   148  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   149  halt:x:7:0:halt:/sbin:/sbin/halt
+   150  bin:x:1:1:bin:/bin:/sbin/nologin
+   151  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   152  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   153  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   154  sync:x:5:0:sync:/sbin:/bin/sync
+   155  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   156  halt:x:7:0:halt:/sbin:/sbin/halt
+   157  bin:x:1:1:bin:/bin:/sbin/nologin
+   158  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   159  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   160  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   161  sync:x:5:0:sync:/sbin:/bin/sync
+   162  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   163  halt:x:7:0:halt:/sbin:/sbin/halt
+   164  bin:x:1:1:bin:/bin:/sbin/nologin
+   165  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   166  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   167  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   168  sync:x:5:0:sync:/sbin:/bin/sync
+   169  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   170  halt:x:7:0:halt:/sbin:/sbin/halt
+   171  bin:x:1:1:bin:/bin:/sbin/nologin
+   172  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   173  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   174  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   175  sync:x:5:0:sync:/sbin:/bin/sync
+   176  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   177  halt:x:7:0:halt:/sbin:/sbin/halt
+   178  bin:x:1:1:bin:/bin:/sbin/nologin
+   179  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   180  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   181  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   182  sync:x:5:0:sync:/sbin:/bin/sync
+   183  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   184  halt:x:7:0:halt:/sbin:/sbin/halt
+   185  bin:x:1:1:bin:/bin:/sbin/nologin
+   186  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   187  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   188  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   189  sync:x:5:0:sync:/sbin:/bin/sync
+   190  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   191  halt:x:7:0:halt:/sbin:/sbin/halt
+   192  bin:x:1:1:bin:/bin:/sbin/nologin
+   193  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   194  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   195  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   196  sync:x:5:0:sync:/sbin:/bin/sync
+   197  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   198  halt:x:7:0:halt:/sbin:/sbin/halt
+   199  bin:x:1:1:bin:/bin:/sbin/nologin
+   200  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   201  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   202  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   203  sync:x:5:0:sync:/sbin:/bin/sync
+   204  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   205  halt:x:7:0:halt:/sbin:/sbin/halt
+   206  bin:x:1:1:bin:/bin:/sbin/nologin
+   207  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   208  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   209  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   210  sync:x:5:0:sync:/sbin:/bin/sync
+   211  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   212  halt:x:7:0:halt:/sbin:/sbin/halt
+   213  bin:x:1:1:bin:/bin:/sbin/nologin
+   214  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   215  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   216  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   217  sync:x:5:0:sync:/sbin:/bin/sync
+   218  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   219  halt:x:7:0:halt:/sbin:/sbin/halt
+   220  bin:x:1:1:bin:/bin:/sbin/nologin
+   221  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   222  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   223  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   224  sync:x:5:0:sync:/sbin:/bin/sync
+   225  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   226  halt:x:7:0:halt:/sbin:/sbin/halt
+   227  bin:x:1:1:bin:/bin:/sbin/nologin
+   228  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   229  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   230  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   231  sync:x:5:0:sync:/sbin:/bin/sync
+   232  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   233  halt:x:7:0:halt:/sbin:/sbin/halt
+   234  bin:x:1:1:bin:/bin:/sbin/nologin
+   235  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   236  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   237  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   238  sync:x:5:0:sync:/sbin:/bin/sync
+   239  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   240  halt:x:7:0:halt:/sbin:/sbin/halt
+   241  bin:x:1:1:bin:/bin:/sbin/nologin
+   242  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   243  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   244  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   245  sync:x:5:0:sync:/sbin:/bin/sync
+   246  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   247  halt:x:7:0:halt:/sbin:/sbin/halt
+   248  bin:x:1:1:bin:/bin:/sbin/nologin
+   249  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   250  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   251  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   252  sync:x:5:0:sync:/sbin:/bin/sync
+   253  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   254  halt:x:7:0:halt:/sbin:/sbin/halt
+   255  bin:x:1:1:bin:/bin:/sbin/nologin
+   256  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   257  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   258  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   259  sync:x:5:0:sync:/sbin:/bin/sync
+   260  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   261  halt:x:7:0:halt:/sbin:/sbin/halt
+   262  bin:x:1:1:bin:/bin:/sbin/nologin
+   263  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   264  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   265  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   266  sync:x:5:0:sync:/sbin:/bin/sync
+   267  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   268  halt:x:7:0:halt:/sbin:/sbin/halt
+   269  bin:x:1:1:bin:/bin:/sbin/nologin
+   270  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   271  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   272  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   273  sync:x:5:0:sync:/sbin:/bin/sync
+   274  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   275  halt:x:7:0:halt:/sbin:/sbin/halt
+   276  bin:x:1:1:bin:/bin:/sbin/nologin
+   277  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   278  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   279  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   280  sync:x:5:0:sync:/sbin:/bin/sync
+   281  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   282  halt:x:7:0:halt:/sbin:/sbin/halt
+   283  bin:x:1:1:bin:/bin:/sbin/nologin
+   284  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   285  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   286  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   287  sync:x:5:0:sync:/sbin:/bin/sync
+   288  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   289  halt:x:7:0:halt:/sbin:/sbin/halt
+   290  bin:x:1:1:bin:/bin:/sbin/nologin
+   291  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   292  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   293  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   294  sync:x:5:0:sync:/sbin:/bin/sync
+   295  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   296  halt:x:7:0:halt:/sbin:/sbin/halt
+   297  bin:x:1:1:bin:/bin:/sbin/nologin
+   298  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   299  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   300  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   301  sync:x:5:0:sync:/sbin:/bin/sync
+   302  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   303  halt:x:7:0:halt:/sbin:/sbin/halt
+   304  bin:x:1:1:bin:/bin:/sbin/nologin
+   305  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   306  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   307  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   308  sync:x:5:0:sync:/sbin:/bin/sync
+   309  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   310  halt:x:7:0:halt:/sbin:/sbin/halt
+   311  bin:x:1:1:bin:/bin:/sbin/nologin
+   312  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   313  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   314  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   315  sync:x:5:0:sync:/sbin:/bin/sync
+   316  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   317  halt:x:7:0:halt:/sbin:/sbin/halt
+   318  bin:x:1:1:bin:/bin:/sbin/nologin
+   319  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   320  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   321  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   322  sync:x:5:0:sync:/sbin:/bin/sync
+   323  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   324  halt:x:7:0:halt:/sbin:/sbin/halt
+   325  bin:x:1:1:bin:/bin:/sbin/nologin
+   326  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   327  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   328  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   329  sync:x:5:0:sync:/sbin:/bin/sync
+   330  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   331  halt:x:7:0:halt:/sbin:/sbin/halt
+   332  bin:x:1:1:bin:/bin:/sbin/nologin
+   333  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   334  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   335  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   336  sync:x:5:0:sync:/sbin:/bin/sync
+   337  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   338  halt:x:7:0:halt:/sbin:/sbin/halt
+   339  bin:x:1:1:bin:/bin:/sbin/nologin
+   340  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   341  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   342  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   343  sync:x:5:0:sync:/sbin:/bin/sync
+   344  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   345  halt:x:7:0:halt:/sbin:/sbin/halt
+   346  bin:x:1:1:bin:/bin:/sbin/nologin
+   347  daemon:x:2:2:daemon:/sbin:/sbin/nologin
+   348  adm:x:3:4:adm:/var/adm:/sbin/nologin
+   349  lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+   350  sync:x:5:0:sync:/sbin:/bin/sync
+   351  shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+   352  halt:x:7:0:halt:/sbin:/sbin/halt
+   353  mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+   354  operator:x:11:0:operator:/root:/sbin/nologin
+   355  games:x:12:100:games:/usr/games:/sbin/nologin
+   356  ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
+   357  nobody:x:65534:65534:Kernel Overflow User:/:/sbin/nologin
+   358  dbus:x:81:81:System message bus:/:/sbin/nologin
+   359  tss:x:59:59:Account used for TPM access:/dev/null:/sbin/nologin
+   360  systemd-coredump:x:999:997:systemd Core Dumper:/:/sbin/nologin
+   361  systemd-resolve:x:193:193:systemd Resolver:/:/sbin/nologin
+   362  polkitd:x:998:996:User for polkitd:/:/sbin/nologin
+   363  unbound:x:997:994:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+   364  sssd:x:996:993:User for sssd:/:/sbin/nologin
+   365  chrony:x:995:992::/var/lib/chrony:/sbin/nologin
+   366  sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+   367  ec2-user:x:1000:1000:Cloud User:/home/ec2-user:/bin/bash
+   368  vishal:x:1001:1001::/home/vishal:/bin/bash
+   369  manvitha:x:1002:1002::/home/manvitha:/bin/bash
+   370  hussain:x:1003:1003::/home/hussain:/bin/bash
+   371  stephen:x:1004:1004::/home/stephen:/bin/bash
+   372  professor:x:1005:1007::/home/professor:/bin/bash
+   373  tokyo:x:1006:1008::/home/tokyo:/bin/bash
+   374  jimin:x:1007:1009::/home/jimin:/bin/bash
+   375  bts:x:1008:1010::/home/bts:/bin/bash
+   376  kpop:x:1009:1011::/home/kpop:/bin/bash
+   377  prasiddh:x:1010:1014::/home/prasiddh:/bin/bash
+[root@ip-172-31-20-251 ~]#
+[root@ip-172-31-20-251 ~]# head passwd
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+[root@ip-172-31-20-251 ~]# cat -n passwd | head
+     1  root:x:0:0:root:/root:/bin/bash
+     2  root:x:0:0:root:/root:/bin/bash
+     3  root:x:0:0:root:/root:/bin/bash
+     4  root:x:0:0:root:/root:/bin/bash
+     5  root:x:0:0:root:/root:/bin/bash
+     6  root:x:0:0:root:/root:/bin/bash
+     7  root:x:0:0:root:/root:/bin/bash
+     8  root:x:0:0:root:/root:/bin/bash
+     9  root:x:0:0:root:/root:/bin/bash
+    10  root:x:0:0:root:/root:/bin/bash
+[root@ip-172-31-20-251 ~]# head -n 15  passwd
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+root:x:0:0:root:/root:/bin/bash
+[root@ip-172-31-20-251 ~]# cat -n passwd | head -n 5
+     1  root:x:0:0:root:/root:/bin/bash
+     2  root:x:0:0:root:/root:/bin/bash
+     3  root:x:0:0:root:/root:/bin/bash
+     4  root:x:0:0:root:/root:/bin/bash
+     5  root:x:0:0:root:/root:/bin/bash
+[root@ip-172-31-20-251 ~]# tail passwd
+vishal:x:1001:1001::/home/vishal:/bin/bash
+manvitha:x:1002:1002::/home/manvitha:/bin/bash
+hussain:x:1003:1003::/home/hussain:/bin/bash
+stephen:x:1004:1004::/home/stephen:/bin/bash
+professor:x:1005:1007::/home/professor:/bin/bash
+tokyo:x:1006:1008::/home/tokyo:/bin/bash
+jimin:x:1007:1009::/home/jimin:/bin/bash
+bts:x:1008:1010::/home/bts:/bin/bash
+kpop:x:1009:1011::/home/kpop:/bin/bash
+prasiddh:x:1010:1014::/home/prasiddh:/bin/bash
+[root@ip-172-31-20-251 ~]# cat -n passwd |tail
+   368  vishal:x:1001:1001::/home/vishal:/bin/bash
+   369  manvitha:x:1002:1002::/home/manvitha:/bin/bash
+   370  hussain:x:1003:1003::/home/hussain:/bin/bash
+   371  stephen:x:1004:1004::/home/stephen:/bin/bash
+   372  professor:x:1005:1007::/home/professor:/bin/bash
+   373  tokyo:x:1006:1008::/home/tokyo:/bin/bash
+   374  jimin:x:1007:1009::/home/jimin:/bin/bash
+   375  bts:x:1008:1010::/home/bts:/bin/bash
+   376  kpop:x:1009:1011::/home/kpop:/bin/bash
+   377  prasiddh:x:1010:1014::/home/prasiddh:/bin/bash
+[root@ip-172-31-20-251 ~]# cat -n passwd |tail -n 5
+   373  tokyo:x:1006:1008::/home/tokyo:/bin/bash
+   374  jimin:x:1007:1009::/home/jimin:/bin/bash
+   375  bts:x:1008:1010::/home/bts:/bin/bash
+   376  kpop:x:1009:1011::/home/kpop:/bin/bash
+   377  prasiddh:x:1010:1014::/home/prasiddh:/bin/bash
+[root@ip-172-31-20-251 ~]# cat -n passwd |tail -n 15
+   363  unbound:x:997:994:Unbound DNS resolver:/etc/unbound:/sbin/nologin
+   364  sssd:x:996:993:User for sssd:/:/sbin/nologin
+   365  chrony:x:995:992::/var/lib/chrony:/sbin/nologin
+   366  sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+   367  ec2-user:x:1000:1000:Cloud User:/home/ec2-user:/bin/bash
+   368  vishal:x:1001:1001::/home/vishal:/bin/bash
+   369  manvitha:x:1002:1002::/home/manvitha:/bin/bash
+   370  hussain:x:1003:1003::/home/hussain:/bin/bash
+   371  stephen:x:1004:1004::/home/stephen:/bin/bash
+   372  professor:x:1005:1007::/home/professor:/bin/bash
+   373  tokyo:x:1006:1008::/home/tokyo:/bin/bash
+   374  jimin:x:1007:1009::/home/jimin:/bin/bash
+   375  bts:x:1008:1010::/home/bts:/bin/bash
+   376  kpop:x:1009:1011::/home/kpop:/bin/bash
+   377  prasiddh:x:1010:1014::/home/prasiddh:/bin/bash
+[root@ip-172-31-20-251 ~]#
+[root@ip-172-31-20-251 ~]# # Inside /etc/passwd you have to get line no 5-10 . create a command which can solve this thing
+[root@ip-172-31-20-251 ~]#
+[root@ip-172-31-20-251 ~]# #hash,cksum,find,grep,diff
+[root@ip-172-31-20-251 ~]# hash
+hits    command
+   1    /usr/bin/tail
+   1    /usr/bin/more
+   2    /usr/bin/head
+   3    /usr/bin/cat
+   2    /usr/bin/cp
+   1    /usr/bin/vi
+   1    /usr/bin/man
+   1    /usr/bin/less
+   1    /usr/bin/ls
+[root@ip-172-31-20-251 ~]# man hash
+[root@ip-172-31-20-251 ~]# cksum a.txt
+4294967295 0 a.txt
+[root@ip-172-31-20-251 ~]# find / -name passwd
+/tmp/absolute/relative/test/passwd
+/var/lib/sss/mc/passwd
+/sys/fs/selinux/class/passwd
+/sys/fs/selinux/class/passwd/perms/passwd
+/root/passwd
+/etc/pam.d/passwd
+/etc/passwd
+/usr/bin/passwd
+/usr/share/licenses/passwd
+/usr/share/doc/passwd
+[root@ip-172-31-20-251 ~]# monkey
+-bash: monkey: command not found
+[root@ip-172-31-20-251 ~]# monkey 2> error.txt
+[root@ip-172-31-20-251 ~]# cat error.txt
+-bash: monkey: command not found
+[root@ip-172-31-20-251 ~]# cat -n error.txt
+     1  -bash: monkey: command not found
+[root@ip-172-31-20-251 ~]# man find
+[root@ip-172-31-20-251 ~]#
+[root@ip-172-31-20-251 ~]# grep "prasiddh" /etc/passwd
+prasiddh:x:1010:1014::/home/prasiddh:/bin/bash
+[root@ip-172-31-20-251 ~]# grep "Prasiddh" /etc/passwd
+[root@ip-172-31-20-251 ~]# grep -i "Prasiddh" /etc/passwd
+prasiddh:x:1010:1014::/home/prasiddh:/bin/bash
+[root@ip-172-31-20-251 ~]# cat > city1.txt
+Kolkata
+Mumbai
+Chennai
+[root@ip-172-31-20-251 ~]# cat > city2.txt
+Kolkata
+Mumbai
+Kanpur
+[root@ip-172-31-20-251 ~]# diff city1.txt city2.txt
+3c3
+< Chennai
+---
+> Kanpur
+[root@ip-172-31-20-251 ~]#
+
